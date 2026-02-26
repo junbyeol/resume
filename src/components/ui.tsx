@@ -5,7 +5,7 @@ interface _BaseProps {
 
 export const Container = ({ children, className }: _BaseProps) => {
     return (
-        <div className={`w-[1024px] h-full bg-background flex flex-col ${className}`}>
+        <div className={`w-[1024px] h-full mx-auto bg-background flex flex-col ${className}`}>
             {children}
         </div>
     )
@@ -13,7 +13,7 @@ export const Container = ({ children, className }: _BaseProps) => {
 
 export const Section = ({ children, className }: _BaseProps) => {
     return (
-        <section className={`w-full min-h-0 p-6 flex flex-1 flex-row justify-center ${className}`}>
+        <section className={`w-full p-6 flex justify-center ${className}`}>
             {children}
         </section>
     )
@@ -28,7 +28,7 @@ export const Card = ({ children, className }: _BaseProps) => {
 };
 
 interface _SpacingProps {
-    gap?: 0 | 1 | 2 | 4 | 5 | 6;
+    gap?: 0 | 1 | 2 | 3| 4 | 5 | 6 | 8 | 16;
     align?: 'start' | 'center' | 'end' | 'stretch';
 }
 
@@ -36,9 +36,12 @@ const gapStyles = {
     0: 'gap-0',
     1: 'gap-1',
     2: 'gap-2',
+    3: 'gap-3',
     4: 'gap-4',
     5: 'gap-5',
     6: 'gap-6',
+    8: 'gap-8',
+    16: 'gap-16',
 }
 
 const alignStyles = {
