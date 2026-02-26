@@ -83,14 +83,14 @@ interface _TextProps {
 type TextProps = PolymorphicProps<'span' | 'p'> & _TextProps;
 
 const variantStyles = {
-    'main-title': 'text-main-title',
+    'main-title': 'text-main-title text-text',
     'main-subtitle': 'text-main-subtitle text-accent',
-    'main-body': 'text-main-body',
-    'section-header': 'text-section-header',
-    'section-title': 'text-section-title',
+    'main-body': 'text-main-body text-text',
+    'section-header': 'text-section-header text-text',
+    'section-title': 'text-section-title text-text',
     'section-meta-text': 'text-section-meta-text text-text-muted',
     'section-title-secondary': 'text-section-title-secondary text-accent',
-    'section-body': 'text-section-body',
+    'section-body': 'text-section-body text-text',
 }
 
 export const Text = ({

@@ -1,10 +1,74 @@
+import { useEffect, useState } from "react";
 import { Container, Section, Text, Card, Inline, Stack } from "./components/ui";
+import Toggle from "./components/toggle";
 import profileImage from "./assets/nupjook.jpg";
+import { LuMoon, LuSun } from "react-icons/lu";
+
+type LanguageCode = "en" | "kr";
+type ThemeMode = "light" | "dark";
+
 const App = () => {
+  const [language, setLanguage] = useState<LanguageCode>("en");
+  const [theme, setTheme] = useState<ThemeMode>("light");
+
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+
+    const rootElement = document.documentElement;
+
+    if (theme === "dark") {
+      rootElement.classList.add("dark");
+    } else {
+      rootElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleToggleLanguage = () => {
+    setLanguage((previousLanguage) =>
+      previousLanguage === "en" ? "kr" : "en"
+    );
+  };
+
+  const handleToggleTheme = () => {
+    setTheme((previousTheme) =>
+      previousTheme === "light" ? "dark" : "light"
+    );
+  };
+
+  const isKoreanSelected = language === "kr";
+  const isDarkMode = theme === "dark";
+
   return (
     <Container>
       <Section>
-        <p>헤더 영역</p>
+        <Inline className="w-full justify-end gap-12">
+          <Inline gap={3}>
+            <Text variant="section-meta-text">
+              LANGUAGE
+            </Text>
+            <Toggle
+              isOn={isKoreanSelected}
+              onToggle={handleToggleLanguage}
+              ariaLabel="Toggle language between English and Korean"
+              offLabel="EN"
+              onLabel="KR"
+            />
+          </Inline>
+          <Inline gap={3}>
+            <Text variant="section-meta-text">
+              THEME
+            </Text>
+            <Toggle
+              isOn={isDarkMode}
+              onToggle={handleToggleTheme}
+              ariaLabel="Toggle between light and dark theme"
+              onLabel={<LuSun />}
+              offLabel={<LuMoon />}
+            />
+          </Inline>
+        </Inline>
       </Section>
       <Section>
         <Card>
