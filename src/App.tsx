@@ -8,16 +8,17 @@ import {
   Stack,
   Link,
 } from "./components/ui";
-import Toggle from "./components/toggle";
+import Toggle from "./components/Toggle";
 import profileImage from "./assets/nupjook.jpg";
 import { LuMoon, LuSun, LuMail } from "react-icons/lu";
 import { SiGithub, SiTistory, SiLinkedin } from "react-icons/si";
+import { type Language, locales } from "./locales";
+import { skills } from "./locales/skills";
 
-type LanguageCode = "en" | "kr";
 type ThemeMode = "light" | "dark";
 
 const App = () => {
-  const [language, setLanguage] = useState<LanguageCode>("en");
+  const [language, setLanguage] = useState<Language>("en");
   const [theme, setTheme] = useState<ThemeMode>("light");
 
   useEffect(() => {
@@ -46,6 +47,15 @@ const App = () => {
 
   const isKoreanSelected = language === "kr";
   const isDarkMode = theme === "dark";
+
+  const {
+    main: mainLocale,
+    experiences: experiencesLocale,
+    educations: educationsLocale,
+    additionals: additionalsLocale,
+  } = locales[language];
+  const { name, position, email, github, blog, linkedin, statement } =
+    mainLocale;
 
   return (
     <Container>
@@ -79,44 +89,40 @@ const App = () => {
             <img
               src={profileImage}
               alt="hero"
-              className="w-[8rem] h-[8rem] rounded-full"
+              className="w-32 h-32 rounded-full"
             />
             <Stack>
               <Inline className="w-full justify-between">
-                <Text variant="main-title">Nupjook</Text>
+                <Text variant="main-title">{name}</Text>
                 <Inline gap={4}>
-                  <Link to="mailto:e-mail@email.com">
-                  <Inline gap={1}>
-                    <LuMail />
-                    <Text variant="section-body">E-mail@email.com</Text>
-                  </Inline>
+                  <Link to={`mailto:${email}`}>
+                    <Inline gap={1}>
+                      <LuMail className="text-text" />
+                      <Text variant="section-body">{email}</Text>
+                    </Inline>
                   </Link>
-                  <Link to="https://naver.com">
+                  <Link to={github}>
                     <Inline gap={1} className="cursor-pointer">
-                      <SiGithub />
+                      <SiGithub className="text-text" />
                       <Text variant="section-body">Github</Text>
                     </Inline>
                   </Link>
-                  <Link to="https://naver.com">
+                  <Link to={blog}>
                     <Inline gap={1} className="cursor-pointer">
-                      <SiTistory />
+                      <SiTistory className="text-text" />
                       <Text variant="section-body">Blog</Text>
                     </Inline>
                   </Link>
-                  <Link to="https://naver.com">
+                  <Link to={linkedin}>
                     <Inline gap={1} className="cursor-pointer">
-                      <SiLinkedin />
+                      <SiLinkedin className="text-text" />
                       <Text variant="section-body">Linkedin</Text>
                     </Inline>
                   </Link>
                 </Inline>
               </Inline>
-              <Text variant="main-subtitle">Software Engineer</Text>
-              <Text variant="main-body">
-                I'm a software engineer with a passion for building web
-                applications. I'm a quick learner and I'm always looking to
-                improve my skills.
-              </Text>
+              <Text variant="main-subtitle">{position}</Text>
+              <Text variant="main-body">{statement}</Text>
             </Stack>
           </Inline>
         </Card>
@@ -129,8 +135,8 @@ const App = () => {
               <Stack gap={8}>
                 <Text variant="section-header">Technical Skills</Text>
                 <Stack gap={8}>
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <TechnicalSkillsCard key={index} />
+                  {skills.map((skill) => (
+                    <TechnicalSkillsCard key={skill.title} title={skill.title} tags={skill.tags} />
                   ))}
                 </Stack>
               </Stack>
@@ -139,8 +145,8 @@ const App = () => {
               <Stack gap={8}>
                 <Text variant="section-header">Education</Text>
                 <Stack gap={8}>
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <EducationCard key={index} />
+                  {educationsLocale.map((education) => (
+                    <EducationCard key={education.name} name={education.name} from={education.from} to={education.to} bullets={education.bullets} />
                   ))}
                 </Stack>
               </Stack>
@@ -151,8 +157,15 @@ const App = () => {
               <Stack gap={8}>
                 <Text variant="section-header">Professional Experience</Text>
                 <Stack gap={16}>
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <ExperienceCard key={index} />
+                  {experiencesLocale.map((experience) => (
+                    <ExperienceCard
+                      key={experience.name}
+                      name={experience.name}
+                      from={experience.from}
+                      to={experience.to}
+                      description={experience.description}
+                      bullets={experience.bullets}
+                    />
                   ))}
                 </Stack>
               </Stack>
@@ -161,8 +174,8 @@ const App = () => {
               <Stack gap={8}>
                 <Text variant="section-header">Additional Info.</Text>
                 <Stack gap={8}>
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <AdditionalInfoCard key={index} />
+                  {additionalsLocale.map((additional) => (
+                    <AdditionalInfoCard key={additional.name} name={additional.name} date={additional.date} link={additional.link} description={additional.description} bullets={additional.bullets} />
                   ))}
                 </Stack>
               </Stack>
@@ -174,24 +187,47 @@ const App = () => {
   );
 };
 
-const ExperienceCard = () => {
+interface ExperienceCardProps {
+  name: string;
+  from: string;
+  to: string;
+  description: string;
+  bullets: string[];
+}
+
+const ExperienceCard = ({
+  name,
+  from,
+  to,
+  description,
+  bullets,
+}: ExperienceCardProps) => {
   return (
     <Card>
       <Inline className="justify-between">
-        <Text variant="section-title">Experience</Text>
-        <Text variant="section-meta-text">2020 - 2024</Text>
+        <Text variant="section-title">{name}</Text>
+        <Text variant="section-meta-text">
+          {from} - {to}
+        </Text>
       </Inline>
-      <Text variant="section-title-secondary">Company Name</Text>
-      <Text variant="section-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-      </Text>
+      <Text variant="section-title-secondary">{description}</Text>
+      <ul className="list-disc list-inside">
+        {bullets.map((bullet) => (
+          <Text variant="section-body" key={bullet} as="li">
+            {bullet}
+          </Text>
+        ))}
+      </ul>
     </Card>
   );
 };
 
-const TechnicalSkillsCard = () => {
-  const dummyTags = ["TypeScript", "Node.js", "Express", "NestJS"];
+interface TechnicalSkillsCardProps {
+  title: string;
+  tags: string[];
+}
 
+const TechnicalSkillsCard = ({ title, tags }: TechnicalSkillsCardProps) => {
   const Tag = ({ text }: { text: string }) => {
     return (
       <div className="border border-accent border-opacity-20 rounded-sm px-2 py-0.5">
@@ -205,10 +241,10 @@ const TechnicalSkillsCard = () => {
   return (
     <Card>
       <Stack gap={3}>
-        <Text variant="section-title-secondary">Backend</Text>
+        <Text variant="section-title-secondary">{title}</Text>
         <Inline className="flex-wrap">
-          {dummyTags.map((tag) => (
-            <Tag key={tag} text={tag} />
+          {tags.map((tag) => (
+            <Tag key={tag} text={tag} />  
           ))}
         </Inline>
       </Stack>
@@ -216,34 +252,68 @@ const TechnicalSkillsCard = () => {
   );
 };
 
-const EducationCard = () => {
+interface EducationCardProps {
+  name: string;
+  from: string;
+  to: string;
+  bullets: string[];
+}
+
+const EducationCard = ({ name, from, to, bullets }: EducationCardProps) => {
   return (
     <Card>
       <Stack gap={3} align="stretch">
         <Inline className="flex-1 justify-between">
-          <Text variant="section-title-secondary">Education</Text>
-          <Text variant="section-meta-text">2020 - 2024</Text>
+          <Text variant="section-title-secondary">{name}</Text>
+          <Text variant="section-meta-text">
+            {from} - {to}
+          </Text>
         </Inline>
-
-        <Text variant="section-body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          quos.
-        </Text>
+        <ul className="list-disc list-inside">
+          {bullets.map((bullet) => (
+            <Text variant="section-body" key={bullet} as="li">
+              {bullet}
+            </Text>
+          ))}
+        </ul>
       </Stack>
     </Card>
   );
 };
 
-const AdditionalInfoCard = () => {
+interface AdditionalInfoCardProps {
+  name: string;
+  date: string;
+  link?: string;
+  description?: string;
+  bullets?: string[];
+}
+
+const AdditionalInfoCard = ({ name, date, link, description, bullets }: AdditionalInfoCardProps) => {
   return (
     <Card>
       <Inline className="justify-between">
-        <Text variant="section-title-secondary">Additional Info.</Text>
-        <Text variant="section-meta-text">2020 - 2024</Text>
+        {
+          link ? 
+          <Link to={link}>
+            <Text variant="section-title-secondary" className="underline">{name}</Text>
+          </Link>
+          :
+          <Text variant="section-title-secondary">{name}</Text>
+        }
+        
+        <Text variant="section-meta-text">{date}</Text>
       </Inline>
-      <Text variant="section-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-      </Text>
+      {description && <Text variant="section-body">{description}</Text>}
+      {bullets && (
+        <ul className="list-disc list-inside">
+          {bullets.map((bullet) => (
+            <Text variant="section-body" key={bullet} as="li">
+              {bullet}
+            </Text>
+          ))}
+        </ul>
+      )}
     </Card>
   );
 };
