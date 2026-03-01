@@ -21,7 +21,7 @@ export const Section = ({ children, className }: _BaseProps) => {
 
 export const Card = ({ children, className }: _BaseProps) => {
     return (
-        <div className={`w-full bg-bg-dark rounded-3xl p-4 border border-bg ${className}`}>
+        <div className={`w-full bg-bg-dark rounded-3xl p-4 ${className}`}>
             {children}
         </div>
     )
@@ -105,11 +105,15 @@ export const Text = ({
     return <Component className={`${variantStyles[variant]} ${className}`} {...props} >{children}</Component>
 };
  
+interface ActionProps extends React.HTMLAttributes<HTMLElement> {
+    to: string;
+    children: React.ReactNode;
+  }
 
-export const Button = ({ children, type = 'primary' }: { children: React.ReactNode, type?: 'primary' | 'secondary' }) => {
+export const Link = ({ to, children, className }: ActionProps) => {    
     return (
-        <button className={'px-4 py-2 rounded-md text-bg border-2 ' + (type === 'primary' ? 'bg-accent-primary border-accent-primary-soft' : 'bg-accent-secondary border-accent-secondary-soft')}>
-                {children}
-            </button>
-        )
-    }
+    <a href={to} className={`cursor-pointer transition-all hover:scale-95 ${className}`}>
+        {children}
+    </a>
+    );
+  };

@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
-import { Container, Section, Text, Card, Inline, Stack } from "./components/ui";
+import {
+  Container,
+  Section,
+  Text,
+  Card,
+  Inline,
+  Stack,
+  Link,
+} from "./components/ui";
 import Toggle from "./components/toggle";
 import profileImage from "./assets/nupjook.jpg";
-import { LuMoon, LuSun } from "react-icons/lu";
+import { LuMoon, LuSun, LuMail } from "react-icons/lu";
+import { SiGithub, SiTistory, SiLinkedin } from "react-icons/si";
 
 type LanguageCode = "en" | "kr";
 type ThemeMode = "light" | "dark";
@@ -32,9 +41,7 @@ const App = () => {
   };
 
   const handleToggleTheme = () => {
-    setTheme((previousTheme) =>
-      previousTheme === "light" ? "dark" : "light"
-    );
+    setTheme((previousTheme) => (previousTheme === "light" ? "dark" : "light"));
   };
 
   const isKoreanSelected = language === "kr";
@@ -45,9 +52,7 @@ const App = () => {
       <Section>
         <Inline className="w-full justify-end gap-12">
           <Inline gap={3}>
-            <Text variant="section-meta-text">
-              LANGUAGE
-            </Text>
+            <Text variant="section-meta-text">LANGUAGE</Text>
             <Toggle
               isOn={isKoreanSelected}
               onToggle={handleToggleLanguage}
@@ -57,9 +62,7 @@ const App = () => {
             />
           </Inline>
           <Inline gap={3}>
-            <Text variant="section-meta-text">
-              THEME
-            </Text>
+            <Text variant="section-meta-text">THEME</Text>
             <Toggle
               isOn={isDarkMode}
               onToggle={handleToggleTheme}
@@ -79,7 +82,35 @@ const App = () => {
               className="w-[8rem] h-[8rem] rounded-full"
             />
             <Stack>
-              <Text variant="main-title">Nupjook</Text>
+              <Inline className="w-full justify-between">
+                <Text variant="main-title">Nupjook</Text>
+                <Inline gap={4}>
+                  <Link to="mailto:e-mail@email.com">
+                  <Inline gap={1}>
+                    <LuMail />
+                    <Text variant="section-body">E-mail@email.com</Text>
+                  </Inline>
+                  </Link>
+                  <Link to="https://naver.com">
+                    <Inline gap={1} className="cursor-pointer">
+                      <SiGithub />
+                      <Text variant="section-body">Github</Text>
+                    </Inline>
+                  </Link>
+                  <Link to="https://naver.com">
+                    <Inline gap={1} className="cursor-pointer">
+                      <SiTistory />
+                      <Text variant="section-body">Blog</Text>
+                    </Inline>
+                  </Link>
+                  <Link to="https://naver.com">
+                    <Inline gap={1} className="cursor-pointer">
+                      <SiLinkedin />
+                      <Text variant="section-body">Linkedin</Text>
+                    </Inline>
+                  </Link>
+                </Inline>
+              </Inline>
               <Text variant="main-subtitle">Software Engineer</Text>
               <Text variant="main-body">
                 I'm a software engineer with a passion for building web
@@ -105,7 +136,7 @@ const App = () => {
               </Stack>
             </Card>
             <Card>
-            <Stack gap={8}>
+              <Stack gap={8}>
                 <Text variant="section-header">Education</Text>
                 <Stack gap={8}>
                   {Array.from({ length: 3 }).map((_, index) => (
@@ -127,9 +158,9 @@ const App = () => {
               </Stack>
             </Card>
             <Card>
-            <Stack gap={8}>
-              <Text variant="section-header">Additional Info.</Text>
               <Stack gap={8}>
+                <Text variant="section-header">Additional Info.</Text>
+                <Stack gap={8}>
                   {Array.from({ length: 3 }).map((_, index) => (
                     <AdditionalInfoCard key={index} />
                   ))}
@@ -164,7 +195,7 @@ const TechnicalSkillsCard = () => {
   const Tag = ({ text }: { text: string }) => {
     return (
       <div className="border border-accent border-opacity-20 rounded-sm px-2 py-0.5">
-        <Text variant="section-body" className="text-accent">
+        <Text variant="section-body" className="text-accent!">
           {text}
         </Text>
       </div>
@@ -211,8 +242,7 @@ const AdditionalInfoCard = () => {
         <Text variant="section-meta-text">2020 - 2024</Text>
       </Inline>
       <Text variant="section-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-        quos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
       </Text>
     </Card>
   );
