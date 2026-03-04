@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  resume-app:
+    container_name: resume-web
+    build: .
+    networks:
+      - web-network # 3단계에서 만든 네트워크 이름
+
+networks:
+  web-network:
+    external: true # 외부에서 생성된 네트워크임을 명시
