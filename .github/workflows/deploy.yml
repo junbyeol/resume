@@ -1,0 +1,59 @@
+name: Docker Build and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository_owner }}/resume-app
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write # GHCR에 이미지를 쓸 권한이 필요합니다.
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }} # 별도 설정 없이 자동 생성되는 토큰입니다.
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+  deploy:
+    needs: build-and-push # 빌드가 성공해야 배포를 시작합니다.
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH and Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.GCP_HOST }}
+          username: ${{ secrets.GCP_USERNAME }}
+          key: ${{ secrets.GCP_SSH_KEY }}
+          port: ${{ secrets.GCP_SSH_PORT }}
+          script: |
+            cd ~/my-server/infra
+            
+            # 1. GHCR 로그인 (서버에서도 이미지를 가져올 권한이 필요함)
+            # 여기서는 편의상 패스워드 대신 GitHub 패키지 공개 설정을 권장하지만, 
+            # 보안을 위해 아래 명령어를 한 번은 수동으로 해줘야 할 수 있습니다.
+            
+            # 2. 새 이미지 가져오기 및 컨테이너 재시작
+            docker compose pull resume-app
+            docker compose up -d resume-app
+            
+            # 3. 오래된 이미지 정리
+            docker image prune -f
