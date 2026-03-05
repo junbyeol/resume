@@ -1,7 +1,6 @@
 version: '3.8'
 services:
   resume-app:
-    container_name: resume-web
     image: ghcr.io/${GITHUB_REPOSITORY_OWNER}/resume-app:latest
     container_name: resume-app
     restart: always    
