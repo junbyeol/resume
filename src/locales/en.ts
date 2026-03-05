@@ -2,7 +2,7 @@ import type { LocaleSchema } from "./kr";
 
 export const en: LocaleSchema = {
     main: {
-      name: "윤준성",
+      name: "Junsung Yoon",
       position: "소프트웨어 엔지니어",
       email: "yoonjs0510@gmail.com",
       github: "https://github.com/junbyeol",
