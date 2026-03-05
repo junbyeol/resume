@@ -45,7 +45,7 @@ jobs:
           key: ${{ secrets.GCP_SSH_KEY }}
           port: ${{ secrets.GCP_SSH_PORT }}
           script: |
-            cd ~/my-server/infra
+            cd ~/resume
             
             # 1. GHCR 로그인 (서버에서도 이미지를 가져올 권한이 필요함)
             # 여기서는 편의상 패스워드 대신 GitHub 패키지 공개 설정을 권장하지만, 
