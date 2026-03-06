@@ -16,6 +16,7 @@ export const en: LocaleSchema = {
         name: "Gravitylabs(그래비티랩스)",
         from: "Jan 2024",
         to: "Aug 2024",
+        period: "",
         description: "Reward app based on step count, Full-stack position",
         bullets: [
           "Solely managed the full-stack lifecycle—from architecture to deployment—for feature-specific modules using TypeScript, Node.js, and AWS Lambda.",
@@ -27,6 +28,7 @@ export const en: LocaleSchema = {
         name: "Devsisters(데브시스터즈)",
         from: "Jul 2020",
         to: "Jan 2024",
+        period: "",
         description: "Cookie Run IP game company, Backend position in Web Services Cell",
         bullets: [
           "Engineered scalable systems for large-scale marketing campaigns, focusing on ensuring system stability during peak traffic periods.",
@@ -40,6 +42,7 @@ export const en: LocaleSchema = {
         name: "Selectstar(셀렉트스타)",
         from: "Jan 2020",
         to: "Jun 2020",
+        period: "",
         description: "Reward app for AI learning data labeling, Backend position",
         bullets: [
           "Developed a Slack bot for internal attendance and monthly work hour management.",
