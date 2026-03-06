@@ -59,7 +59,7 @@ const App = () => {
 
   return (
     <Container>
-      <Section>
+      <Section className="w-[1200px]! mx-auto">
         <Inline className="w-full justify-end gap-12">
           <Inline gap={3}>
             <Text variant="section-meta-text">LANGUAGE</Text>
@@ -83,15 +83,16 @@ const App = () => {
           </Inline>
         </Inline>
       </Section>
-      <Section>
-        <Card>
-          <Inline>
+      <Section className="bg-[#F1F5F4]">
+        <Card className="w-[1200px]! mx-auto">
+          <Stack>
+          <Inline className="w-full" gap={4}>
             <img
               src={profileImage}
               alt="hero"
               className="w-32 h-32 rounded-full"
             />
-            <Stack>
+            <Stack className="w-full">
               <Inline className="w-full justify-between">
                 <Text variant="main-title">{name}</Text>
                 <Inline gap={4}>
@@ -122,12 +123,13 @@ const App = () => {
                 </Inline>
               </Inline>
               <Text variant="main-subtitle">{position}</Text>
-              <Text variant="main-body">{statement}</Text>
             </Stack>
           </Inline>
+          <Text variant="main-body">{statement}</Text>
+          </Stack>
         </Card>
       </Section>
-      <Section>
+      <Section className="w-[1200px]! mx-auto">
         {/* 가로로 2:3 의 비율로 영역 나누기 */}
         <div className="w-full grid grid-cols-5 gap-20">
           <div className="col-span-2 flex flex-col gap-20">
@@ -163,6 +165,7 @@ const App = () => {
                       name={experience.name}
                       from={experience.from}
                       to={experience.to}
+                      period={experience.period}
                       description={experience.description}
                       bullets={experience.bullets}
                     />
@@ -191,6 +194,7 @@ interface ExperienceCardProps {
   name: string;
   from: string;
   to: string;
+  period?: string;
   description: string;
   bullets: string[];
 }
@@ -199,15 +203,17 @@ const ExperienceCard = ({
   name,
   from,
   to,
+  period,
   description,
   bullets,
 }: ExperienceCardProps) => {
   return (
     <Card>
-      <Inline className="justify-between">
+      <Stack className="w-full" gap={3}>
+      <Inline className="w-full justify-between">
         <Text variant="section-title">{name}</Text>
         <Text variant="section-meta-text">
-          {from} - {to}
+          {from} - {to} {period && `(${period})`}
         </Text>
       </Inline>
       <Text variant="section-title-secondary">{description}</Text>
@@ -218,6 +224,7 @@ const ExperienceCard = ({
           </Text>
         ))}
       </ul>
+      </Stack>
     </Card>
   );
 };

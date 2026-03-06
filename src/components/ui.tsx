@@ -6,7 +6,7 @@ interface _BaseProps {
 export const Container = ({ children, className }: _BaseProps) => {
   return (
     <div
-      className={`w-[1024px] h-full mx-auto bg-background flex flex-col ${className}`}
+      className={`w-full h-full bg-background flex flex-col ${className}`}
     >
       {children}
     </div>
