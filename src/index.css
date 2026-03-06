@@ -12,6 +12,7 @@
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
   --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
 
   --text-main-title: 2.25rem; /* 36px */
   --text-main-title--line-height: 2.5rem; /* 40px */
@@ -59,6 +60,7 @@
   --text: hsl(222, 47%, 11%);
   --text-muted: hsl(215, 19%, 35%);
   --accent: hsl(165, 19%, 40%);
+  --accent-muted: hsl(165, 17%, 95%);
 }
 
 .dark {
@@ -66,4 +68,5 @@
   --text: hsl(222, 47%, 100%);
   --text-muted: hsl(215, 19%, 65%);
   --accent: hsl(165, 19%, 60%);
+  --accent-muted: hsl(165, 17%, 5%);
 }

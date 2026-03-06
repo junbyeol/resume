@@ -83,7 +83,7 @@ const App = () => {
           </Inline>
         </Inline>
       </Section>
-      <Section className="bg-[#F1F5F4]">
+      <Section className="bg-accent-muted">
         <Card className="w-[1200px]! mx-auto">
           <Stack>
           <Inline className="w-full" gap={4}>
