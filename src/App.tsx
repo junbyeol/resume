@@ -14,11 +14,30 @@ import { LuMoon, LuSun, LuMail } from "react-icons/lu";
 import { SiGithub, SiTistory, SiLinkedin } from "react-icons/si";
 import { type Language, locales } from "./locales";
 import { skills } from "./locales/skills";
+import { preferencesStorage } from "./storage/preferences";
 
 type ThemeMode = "light" | "dark";
 
+const getInitialLanguage = (): Language => {
+  const storedLanguage = preferencesStorage.getLanguage();
+
+  if (storedLanguage === "en" || storedLanguage === "kr") {
+    return storedLanguage;
+  }
+
+  const browserLanguage =
+    window.navigator.language || window.navigator.languages?.[0] || "";
+  const normalizedLanguage = browserLanguage.toLowerCase();
+
+  if (normalizedLanguage.startsWith("ko")) {
+    return "kr";
+  }
+
+  return "en";
+};
+
 const App = () => {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
   const [theme, setTheme] = useState<ThemeMode>("light");
 
   useEffect(() => {
@@ -34,6 +53,10 @@ const App = () => {
       rootElement.classList.remove("dark");
     }
   }, [theme]);
+
+  useEffect(() => {
+    preferencesStorage.setLanguage(language);
+  }, [language]);
 
   const handleToggleLanguage = () => {
     setLanguage((previousLanguage) =>
