@@ -7,9 +7,10 @@ import {
   Inline,
   Stack,
   Link,
+  Badge,
 } from "./components/ui";
 import Toggle from "./components/Toggle";
-import profileImage from "./assets/nupjook.jpg";
+import profileImage from "./assets/profile.png";
 import { LuMoon, LuSun, LuMail } from "react-icons/lu";
 import { SiGithub, SiTistory, SiLinkedin } from "react-icons/si";
 import { type Language, locales } from "./locales";
@@ -113,7 +114,7 @@ const App = () => {
             <img
               src={profileImage}
               alt="hero"
-              className="w-32 h-32 rounded-full"
+              className="w-40 h-40 rounded-full border border-2 border-accent"
             />
             <Stack className="w-full">
               <Inline className="w-full justify-between">
@@ -180,7 +181,11 @@ const App = () => {
           <div className="col-span-3 flex flex-col gap-20">
             <Card>
               <Stack gap={8}>
+                <Inline className="w-full justify-between">
                 <Text variant="section-header">Professional Experience</Text>
+                <Badge className="mr-4 ">Total: 4+ years</Badge>
+                </Inline>
+                
                 <Stack gap={16}>
                   {experiencesLocale.map((experience) => (
                     <ExperienceCard

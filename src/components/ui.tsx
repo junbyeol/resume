@@ -158,3 +158,11 @@ export const Link = ({ to, children, className }: ActionProps) => {
     </a>
   );
 };
+
+export const Badge = ({ children, className }: _BaseProps) => {
+  return (
+    <div className={`bg-accent-muted rounded-[4px] px-2 py-1 ${className}`}>
+      <Text variant="section-meta-text" className="text-accent!">{children}</Text>
+    </div>
+  );
+};
