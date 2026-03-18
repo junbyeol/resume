@@ -13,11 +13,16 @@ import Toggle from "./components/Toggle";
 import profileImage from "./assets/profile.png";
 import { LuMoon, LuSun, LuMail } from "react-icons/lu";
 import { SiGithub, SiTistory, SiLinkedin } from "react-icons/si";
-import { type Language, locales, type LocaleSchema } from "./locales";
+import { type Language, locales } from "./locales";
 import { skills } from "./locales/skills";
 import { preferencesStorage } from "./storage/preferences";
 import { lastUpdated, lastUpdatedNowDaysInterval } from "./locales/lastUpdated";
-import { Accordion } from "./components/Accordian";
+import {
+  TechnicalSkillsPanel,
+  EducationPanel,
+  ExperiencePanel,
+  AdditionalInfoPanel,
+} from "./panels";
 
 type ThemeMode = "light" | "dark";
 
@@ -164,310 +169,16 @@ const App = () => {
         {/* 가로로 2:3 의 비율로 영역 나누기 */}
         <div className="w-full grid grid-cols-5 gap-20">
           <div className="col-span-2 flex flex-col gap-20">
-            <Card>
-              <Stack gap={8}>
-                <Text variant="section-header">Technical Skills</Text>
-                <Stack gap={8}>
-                  {skills.map((skill) => (
-                    <TechnicalSkillsCard
-                      key={skill.title}
-                      title={skill.title}
-                      tags={skill.tags}
-                    />
-                  ))}
-                </Stack>
-              </Stack>
-            </Card>
-            <Card>
-              <Stack gap={8}>
-                <Text variant="section-header">Education</Text>
-                <Stack gap={8}>
-                  {educationsLocale.map((education) => (
-                    <EducationCard
-                      key={education.name}
-                      name={education.name}
-                      from={education.from}
-                      to={education.to}
-                      bullets={education.bullets}
-                    />
-                  ))}
-                </Stack>
-              </Stack>
-            </Card>
+            <TechnicalSkillsPanel skills={skills} />
+            <EducationPanel educations={educationsLocale} />
+            <AdditionalInfoPanel additionals={additionalsLocale} />
           </div>
           <div className="col-span-3 flex flex-col gap-20">
-            <Card>
-              <Stack gap={8}>
-                <Inline className="w-full justify-between">
-                  <Text variant="section-header">Professional Experience</Text>
-                  <Badge className="mr-4 ">Total: 4+ years</Badge>
-                </Inline>
-
-                <Stack gap={16}>
-                  {experiencesLocale.map((experience) => (
-                    <ExperienceCard
-                      key={experience.name}
-                      name={experience.name}
-                      from={experience.from}
-                      to={experience.to}
-                      period={experience.period}
-                      description={experience.description}
-                      bullets={experience.bullets}
-                      additionals={experience.additionals}
-                    />
-                  ))}
-                </Stack>
-              </Stack>
-            </Card>
-            <Card>
-              <Stack gap={8}>
-                <Text variant="section-header">Additional Info.</Text>
-                <Stack gap={8}>
-                  {additionalsLocale.map((additional) => (
-                    <AdditionalInfoCard
-                      key={additional.name}
-                      name={additional.name}
-                      date={additional.date}
-                      link={additional.link}
-                      description={additional.description}
-                      bullets={additional.bullets}
-                    />
-                  ))}
-                </Stack>
-              </Stack>
-            </Card>
+            <ExperiencePanel experiences={experiencesLocale} />
           </div>
         </div>
       </Section>
     </Container>
-  );
-};
-
-type ExperienceAdditionalInfo = NonNullable<
-  LocaleSchema["experiences"][number]["additionals"]
->[number];
-
-interface ExperienceCardProps {
-  name: string;
-  from: string;
-  to: string;
-  period?: string;
-  description: string;
-  bullets: string[];
-  additionals?: ExperienceAdditionalInfo[];
-}
-
-const ExperienceAdditionalInfoCard = ({
-  additional,
-}: {
-  additional: ExperienceAdditionalInfo;
-}) => {
-  const { title, from, to, bullets, references, images, skills } = additional;
-  const Skill = ({ skill }: { skill: string }) => {
-    return (
-      <div className="border border-text-muted border-opacity-20 rounded-sm px-2 py-0.5">
-        <Text variant="section-body-small">{skill}</Text>
-      </div>
-    );
-  };
-
-  return (
-    <Card>
-      <Stack gap={3}>
-        <Inline className="w-full justify-between">
-          <Text variant="section-title">{title}</Text>
-          <Text variant="section-meta-text">
-            {from} - {to}
-          </Text>
-        </Inline>
-        <ul className="list-disc list-inside">
-          {bullets.map((bullet) => (
-            <Text variant="section-body" key={bullet.main} as="li">
-              {bullet.main}
-              {bullet.subs && (
-                <ul className="list-[circle] list-inside pl-6">
-                  {bullet.subs.map((sub) => (
-                    <Text variant="section-body-small" key={sub} as="li">
-                      {sub}
-                    </Text>
-                  ))}
-                </ul>
-              )}
-            </Text>
-          ))}
-        </ul>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <Skill key={skill} skill={skill} />
-          ))}
-        </div>
-
-        {images.map((image) => (
-          <div>
-            <img src={image.src} />
-            <Text variant="section-body-small">{image.caption}</Text>
-          </div>
-        ))}
-        <ul className="list-none list-inside">
-          {references.map((reference) => (
-            <Link to={reference.link}>
-              <Text variant="section-title-secondary" className="underline">
-                {reference.name}
-              </Text>
-            </Link>
-          ))}
-        </ul>
-      </Stack>
-    </Card>
-  );
-};
-
-const ExperienceCard = ({
-  name,
-  from,
-  to,
-  period,
-  description,
-  bullets,
-  additionals,
-}: ExperienceCardProps) => {
-  return (
-    <Card>
-      <Stack className="w-full" gap={3}>
-        <Inline className="w-full justify-between">
-          <Text variant="section-title">{name}</Text>
-          <Text variant="section-meta-text">
-            {from} - {to} {period && `(${period})`}
-          </Text>
-        </Inline>
-        <Text variant="section-title-secondary">{description}</Text>
-        <ul className="list-disc list-inside">
-          {bullets.map((bullet) => (
-            <Text variant="section-body" key={bullet} as="li">
-              {bullet}
-            </Text>
-          ))}
-        </ul>
-        {additionals && (
-          <Accordion label="Additional Info." defaultOpen={true}>
-            {additionals.map((additional, i) => (
-              <>
-                <ExperienceAdditionalInfoCard
-                  key={additional.title}
-                  additional={additional}
-                />
-                {i !== additionals.length - 1 && (
-                  <div className="my-4 h-[0.1px] bg-text-muted" />
-                )}
-              </>
-            ))}
-          </Accordion>
-        )}
-      </Stack>
-    </Card>
-  );
-};
-
-interface TechnicalSkillsCardProps {
-  title: string;
-  tags: string[];
-}
-
-const TechnicalSkillsCard = ({ title, tags }: TechnicalSkillsCardProps) => {
-  const Tag = ({ text }: { text: string }) => {
-    return (
-      <div className="border border-accent border-opacity-20 rounded-sm px-2 py-0.5">
-        <Text variant="section-body" className="text-accent!">
-          {text}
-        </Text>
-      </div>
-    );
-  };
-
-  return (
-    <Card>
-      <Stack gap={3}>
-        <Text variant="section-title-secondary">{title}</Text>
-        <Inline className="flex-wrap">
-          {tags.map((tag) => (
-            <Tag key={tag} text={tag} />
-          ))}
-        </Inline>
-      </Stack>
-    </Card>
-  );
-};
-
-interface EducationCardProps {
-  name: string;
-  from: string;
-  to: string;
-  bullets: string[];
-}
-
-const EducationCard = ({ name, from, to, bullets }: EducationCardProps) => {
-  return (
-    <Card>
-      <Stack gap={3} align="stretch">
-        <Inline className="flex-1 justify-between">
-          <Text variant="section-title-secondary">{name}</Text>
-          <Text variant="section-meta-text">
-            {from} - {to}
-          </Text>
-        </Inline>
-        <ul className="list-disc list-inside">
-          {bullets.map((bullet) => (
-            <Text variant="section-body" key={bullet} as="li">
-              {bullet}
-            </Text>
-          ))}
-        </ul>
-      </Stack>
-    </Card>
-  );
-};
-
-interface AdditionalInfoCardProps {
-  name: string;
-  date: string;
-  link?: string;
-  description?: string;
-  bullets?: string[];
-}
-
-const AdditionalInfoCard = ({
-  name,
-  date,
-  link,
-  description,
-  bullets,
-}: AdditionalInfoCardProps) => {
-  return (
-    <Card>
-      <Inline className="justify-between">
-        {link ? (
-          <Link to={link}>
-            <Text variant="section-title-secondary" className="underline">
-              {name}
-            </Text>
-          </Link>
-        ) : (
-          <Text variant="section-title-secondary">{name}</Text>
-        )}
-
-        <Text variant="section-meta-text">{date}</Text>
-      </Inline>
-      {description && <Text variant="section-body">{description}</Text>}
-      {bullets && (
-        <ul className="list-disc list-inside">
-          {bullets.map((bullet) => (
-            <Text variant="section-body" key={bullet} as="li">
-              {bullet}
-            </Text>
-          ))}
-        </ul>
-      )}
-    </Card>
   );
 };
 

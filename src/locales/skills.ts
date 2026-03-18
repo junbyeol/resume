@@ -24,3 +24,5 @@ export const skills = [
     tags: ["React", "React Native"],
   },
 ];
+
+export type Skill = (typeof skills)[number];
