@@ -16,6 +16,7 @@ import { SiGithub, SiTistory, SiLinkedin } from "react-icons/si";
 import { type Language, locales } from "./locales";
 import { skills } from "./locales/skills";
 import { preferencesStorage } from "./storage/preferences";
+import { lastUpdated, lastUpdatedNowDaysInterval } from "./locales/lastUpdated";
 
 type ThemeMode = "light" | "dark";
 
@@ -61,7 +62,7 @@ const App = () => {
 
   const handleToggleLanguage = () => {
     setLanguage((previousLanguage) =>
-      previousLanguage === "en" ? "kr" : "en"
+      previousLanguage === "en" ? "kr" : "en",
     );
   };
 
@@ -84,72 +85,75 @@ const App = () => {
   return (
     <Container>
       <Section className="w-[1200px]! mx-auto">
-        <Inline className="w-full justify-end gap-12">
-          <Inline gap={3}>
-            <Text variant="section-meta-text">LANGUAGE</Text>
-            <Toggle
-              isOn={isKoreanSelected}
-              onToggle={handleToggleLanguage}
-              ariaLabel="Toggle language between English and Korean"
-              offLabel="EN"
-              onLabel="KR"
-            />
-          </Inline>
-          <Inline gap={3}>
-            <Text variant="section-meta-text">THEME</Text>
-            <Toggle
-              isOn={isDarkMode}
-              onToggle={handleToggleTheme}
-              ariaLabel="Toggle between light and dark theme"
-              onLabel={<LuSun />}
-              offLabel={<LuMoon />}
-            />
+        <Inline className="w-full justify-between gap-12">
+          <Badge>Last Updated: {lastUpdated} (+{lastUpdatedNowDaysInterval} days)</Badge>
+          <Inline>
+            <Inline gap={3}>
+              <Text variant="section-meta-text">LANGUAGE</Text>
+              <Toggle
+                isOn={isKoreanSelected}
+                onToggle={handleToggleLanguage}
+                ariaLabel="Toggle language between English and Korean"
+                offLabel="EN"
+                onLabel="KR"
+              />
+            </Inline>
+            <Inline gap={3}>
+              <Text variant="section-meta-text">THEME</Text>
+              <Toggle
+                isOn={isDarkMode}
+                onToggle={handleToggleTheme}
+                ariaLabel="Toggle between light and dark theme"
+                onLabel={<LuSun />}
+                offLabel={<LuMoon />}
+              />
+            </Inline>
           </Inline>
         </Inline>
       </Section>
       <Section className="bg-accent-muted">
         <Card className="w-[1200px]! mx-auto">
           <Stack>
-          <Inline className="w-full" gap={4}>
-            <img
-              src={profileImage}
-              alt="hero"
-              className="w-40 h-40 rounded-full border border-2 border-accent"
-            />
-            <Stack className="w-full">
-              <Inline className="w-full justify-between">
-                <Text variant="main-title">{name}</Text>
-                <Inline gap={4}>
-                  <Link to={`mailto:${email}`}>
-                    <Inline gap={1}>
-                      <LuMail className="text-text" />
-                      <Text variant="section-body">{email}</Text>
-                    </Inline>
-                  </Link>
-                  <Link to={github}>
-                    <Inline gap={1} className="cursor-pointer">
-                      <SiGithub className="text-text" />
-                      <Text variant="section-body">Github</Text>
-                    </Inline>
-                  </Link>
-                  <Link to={blog}>
-                    <Inline gap={1} className="cursor-pointer">
-                      <SiTistory className="text-text" />
-                      <Text variant="section-body">Blog</Text>
-                    </Inline>
-                  </Link>
-                  <Link to={linkedin}>
-                    <Inline gap={1} className="cursor-pointer">
-                      <SiLinkedin className="text-text" />
-                      <Text variant="section-body">Linkedin</Text>
-                    </Inline>
-                  </Link>
+            <Inline className="w-full" gap={4}>
+              <img
+                src={profileImage}
+                alt="hero"
+                className="w-40 h-40 rounded-full border border-2 border-accent"
+              />
+              <Stack className="w-full">
+                <Inline className="w-full justify-between">
+                  <Text variant="main-title">{name}</Text>
+                  <Inline gap={4}>
+                    <Link to={`mailto:${email}`}>
+                      <Inline gap={1}>
+                        <LuMail className="text-text" />
+                        <Text variant="section-body">{email}</Text>
+                      </Inline>
+                    </Link>
+                    <Link to={github}>
+                      <Inline gap={1} className="cursor-pointer">
+                        <SiGithub className="text-text" />
+                        <Text variant="section-body">Github</Text>
+                      </Inline>
+                    </Link>
+                    <Link to={blog}>
+                      <Inline gap={1} className="cursor-pointer">
+                        <SiTistory className="text-text" />
+                        <Text variant="section-body">Blog</Text>
+                      </Inline>
+                    </Link>
+                    <Link to={linkedin}>
+                      <Inline gap={1} className="cursor-pointer">
+                        <SiLinkedin className="text-text" />
+                        <Text variant="section-body">Linkedin</Text>
+                      </Inline>
+                    </Link>
+                  </Inline>
                 </Inline>
-              </Inline>
-              <Text variant="main-subtitle">{position}</Text>
-            </Stack>
-          </Inline>
-          <Text variant="main-body">{statement}</Text>
+                <Text variant="main-subtitle">{position}</Text>
+              </Stack>
+            </Inline>
+            <Text variant="main-body">{statement}</Text>
           </Stack>
         </Card>
       </Section>
@@ -162,7 +166,11 @@ const App = () => {
                 <Text variant="section-header">Technical Skills</Text>
                 <Stack gap={8}>
                   {skills.map((skill) => (
-                    <TechnicalSkillsCard key={skill.title} title={skill.title} tags={skill.tags} />
+                    <TechnicalSkillsCard
+                      key={skill.title}
+                      title={skill.title}
+                      tags={skill.tags}
+                    />
                   ))}
                 </Stack>
               </Stack>
@@ -172,7 +180,13 @@ const App = () => {
                 <Text variant="section-header">Education</Text>
                 <Stack gap={8}>
                   {educationsLocale.map((education) => (
-                    <EducationCard key={education.name} name={education.name} from={education.from} to={education.to} bullets={education.bullets} />
+                    <EducationCard
+                      key={education.name}
+                      name={education.name}
+                      from={education.from}
+                      to={education.to}
+                      bullets={education.bullets}
+                    />
                   ))}
                 </Stack>
               </Stack>
@@ -182,10 +196,10 @@ const App = () => {
             <Card>
               <Stack gap={8}>
                 <Inline className="w-full justify-between">
-                <Text variant="section-header">Professional Experience</Text>
-                <Badge className="mr-4 ">Total: 4+ years</Badge>
+                  <Text variant="section-header">Professional Experience</Text>
+                  <Badge className="mr-4 ">Total: 4+ years</Badge>
                 </Inline>
-                
+
                 <Stack gap={16}>
                   {experiencesLocale.map((experience) => (
                     <ExperienceCard
@@ -206,7 +220,14 @@ const App = () => {
                 <Text variant="section-header">Additional Info.</Text>
                 <Stack gap={8}>
                   {additionalsLocale.map((additional) => (
-                    <AdditionalInfoCard key={additional.name} name={additional.name} date={additional.date} link={additional.link} description={additional.description} bullets={additional.bullets} />
+                    <AdditionalInfoCard
+                      key={additional.name}
+                      name={additional.name}
+                      date={additional.date}
+                      link={additional.link}
+                      description={additional.description}
+                      bullets={additional.bullets}
+                    />
                   ))}
                 </Stack>
               </Stack>
@@ -238,20 +259,20 @@ const ExperienceCard = ({
   return (
     <Card>
       <Stack className="w-full" gap={3}>
-      <Inline className="w-full justify-between">
-        <Text variant="section-title">{name}</Text>
-        <Text variant="section-meta-text">
-          {from} - {to} {period && `(${period})`}
-        </Text>
-      </Inline>
-      <Text variant="section-title-secondary">{description}</Text>
-      <ul className="list-disc list-inside">
-        {bullets.map((bullet) => (
-          <Text variant="section-body" key={bullet} as="li">
-            {bullet}
+        <Inline className="w-full justify-between">
+          <Text variant="section-title">{name}</Text>
+          <Text variant="section-meta-text">
+            {from} - {to} {period && `(${period})`}
           </Text>
-        ))}
-      </ul>
+        </Inline>
+        <Text variant="section-title-secondary">{description}</Text>
+        <ul className="list-disc list-inside">
+          {bullets.map((bullet) => (
+            <Text variant="section-body" key={bullet} as="li">
+              {bullet}
+            </Text>
+          ))}
+        </ul>
       </Stack>
     </Card>
   );
@@ -279,7 +300,7 @@ const TechnicalSkillsCard = ({ title, tags }: TechnicalSkillsCardProps) => {
         <Text variant="section-title-secondary">{title}</Text>
         <Inline className="flex-wrap">
           {tags.map((tag) => (
-            <Tag key={tag} text={tag} />  
+            <Tag key={tag} text={tag} />
           ))}
         </Inline>
       </Stack>
@@ -324,19 +345,26 @@ interface AdditionalInfoCardProps {
   bullets?: string[];
 }
 
-const AdditionalInfoCard = ({ name, date, link, description, bullets }: AdditionalInfoCardProps) => {
+const AdditionalInfoCard = ({
+  name,
+  date,
+  link,
+  description,
+  bullets,
+}: AdditionalInfoCardProps) => {
   return (
     <Card>
       <Inline className="justify-between">
-        {
-          link ? 
+        {link ? (
           <Link to={link}>
-            <Text variant="section-title-secondary" className="underline">{name}</Text>
+            <Text variant="section-title-secondary" className="underline">
+              {name}
+            </Text>
           </Link>
-          :
+        ) : (
           <Text variant="section-title-secondary">{name}</Text>
-        }
-        
+        )}
+
         <Text variant="section-meta-text">{date}</Text>
       </Inline>
       {description && <Text variant="section-body">{description}</Text>}
