@@ -82,7 +82,7 @@ const ExperienceAdditionalInfoCard = ({
           {bullets.map((bullet) => (
             <Text variant="section-body" key={bullet.main} as="li">
               {bullet.main}
-              {bullet.subs && (
+              {"subs" in bullet && bullet.subs && (
                 <ul className="list-[circle] list-inside pl-6">
                   {bullet.subs.map((sub) => (
                     <Text variant="section-body-small" key={sub} as="li">
