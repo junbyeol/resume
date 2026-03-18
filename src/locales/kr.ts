@@ -333,14 +333,24 @@ export const kr = {
       name: "경기과학고등학교",
       from: "2015.03",
       to: "2018.02",
-      bullets: ["2015 정보올림피아드 지역부문 동상"],
     },
   ],
-  additionals: [
+  projects: [
     {
       name: "한국약학대학생연합(KNAPS) 공식 사이트 외주 작업",
       date: "2025.08",
       link: "https://knaps.or.kr",
+    },
+    {
+      name: "카이스트 총학생회 공식 사이트 외주 작업(현재 폐쇄)",
+      date: "2020.03 ~ 2020.06",
+    },
+  ],
+  additionals: [
+    {
+      name: "TOEFL iBT 96점",
+      description: "Reading 30/30",
+      date: "2025.08",
     },
     {
       name: "데브시스터즈 사내 백엔드 컨퍼런스에서 발표",
@@ -361,9 +371,17 @@ export const kr = {
       link: "https://tech.devsisters.com/posts/perf-citizen-card/",
     },
     {
-      name: "카이스트 총학생회 공식 사이트 외주 작업",
-      date: "2020.03 ~ 2020.08",
-      link: "https://student.kaist.ac.kr/",
+      name: "현역 산업기능요원 만기 복무",
+      date: "2021.10~2024.08(34개월)",
+      description: "데브시스터즈, 그래비티랩스",
+    },
+    {
+      name: "정보처리산업기사 취득",
+      date: "2020.09",
+    },
+    {
+      name: "고등학생 정보올림피아드",
+      description: "2015 수원시 예선 동상",
     },
   ],
 };

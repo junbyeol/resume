@@ -30,7 +30,7 @@ interface EducationCardProps {
   name: string;
   from: string;
   to: string;
-  bullets: string[];
+  bullets?: string[];
 }
 
 const EducationCard = ({ name, from, to, bullets }: EducationCardProps) => {
@@ -44,11 +44,12 @@ const EducationCard = ({ name, from, to, bullets }: EducationCardProps) => {
           </Text>
         </Inline>
         <ul className="list-disc list-inside">
-          {bullets.map((bullet) => (
-            <Text variant="section-body" key={bullet} as="li">
-              {bullet}
-            </Text>
-          ))}
+          {bullets &&
+            bullets.map((bullet) => (
+              <Text variant="section-body" key={bullet} as="li">
+                {bullet}
+              </Text>
+            ))}
         </ul>
       </Stack>
     </Card>

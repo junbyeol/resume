@@ -29,7 +29,7 @@ export const AdditionalInfoPanel = ({ additionals }: Props) => {
 
 interface AdditionalInfoCardProps {
   name: string;
-  date: string;
+  date?: string;
   link?: string;
   description?: string;
   bullets?: string[];

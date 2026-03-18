@@ -23,6 +23,7 @@ import {
   ExperiencePanel,
   AdditionalInfoPanel,
 } from "./panels";
+import { ProjectPanel } from "./panels/ProjectPanel";
 
 type ThemeMode = "light" | "dark";
 
@@ -83,6 +84,7 @@ const App = () => {
     main: mainLocale,
     experiences: experiencesLocale,
     educations: educationsLocale,
+    projects: projectsLocale,
     additionals: additionalsLocale,
   } = locales[language];
   const { name, position, email, github, blog, linkedin, statement } =
@@ -126,7 +128,7 @@ const App = () => {
               <img
                 src={profileImage}
                 alt="hero"
-                className="w-40 h-40 rounded-full border border-2 border-accent"
+                className="w-40 h-40 rounded-full border-2 border-accent"
               />
               <Stack className="w-full">
                 <Inline className="w-full justify-between">
@@ -171,10 +173,11 @@ const App = () => {
           <div className="col-span-2 flex flex-col gap-20">
             <TechnicalSkillsPanel skills={skills} />
             <EducationPanel educations={educationsLocale} />
-            <AdditionalInfoPanel additionals={additionalsLocale} />
+            {projectsLocale && <ProjectPanel projects={projectsLocale} />}
           </div>
           <div className="col-span-3 flex flex-col gap-20">
             <ExperiencePanel experiences={experiencesLocale} />
+            <AdditionalInfoPanel additionals={additionalsLocale} />
           </div>
         </div>
       </Section>
