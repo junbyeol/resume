@@ -5,9 +5,7 @@ interface _BaseProps {
 
 export const Container = ({ children, className }: _BaseProps) => {
   return (
-    <div
-      className={`w-full h-full bg-background flex flex-col ${className}`}
-    >
+    <div className={`w-full h-full bg-background flex flex-col ${className}`}>
       {children}
     </div>
   );
@@ -133,11 +131,20 @@ export const Text = ({
   return lines.length > 1 ? (
     <div className={`grid auto-rows-auto gap-1 ${className}`}>
       {lines.map((line, index) => (
-        <Component key={index} className={`${variantStyles[variant]}`} {...spreadProps}>{line}</Component>
+        <Component
+          key={index}
+          className={`${variantStyles[variant]}`}
+          {...spreadProps}
+        >
+          {line}
+        </Component>
       ))}
     </div>
   ) : (
-    <Component className={`${variantStyles[variant]} ${className}`} {...spreadProps}>
+    <Component
+      className={`${variantStyles[variant]} ${className}`}
+      {...spreadProps}
+    >
       {children}
     </Component>
   );
@@ -162,7 +169,9 @@ export const Link = ({ to, children, className }: ActionProps) => {
 export const Badge = ({ children, className }: _BaseProps) => {
   return (
     <div className={`bg-accent-muted rounded-[4px] px-2 py-1 ${className}`}>
-      <Text variant="section-meta-text" className="text-accent!">{children}</Text>
+      <Text variant="section-meta-text" className="text-accent!">
+        {children}
+      </Text>
     </div>
   );
 };

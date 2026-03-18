@@ -8,7 +8,13 @@ type ToggleProps = {
   offLabel?: ReactNode;
 };
 
-const Toggle = ({ isOn, onToggle, ariaLabel, onLabel, offLabel }: ToggleProps) => {
+const Toggle = ({
+  isOn,
+  onToggle,
+  ariaLabel,
+  onLabel,
+  offLabel,
+}: ToggleProps) => {
   return (
     <button
       type="button"
@@ -37,6 +43,3 @@ const Toggle = ({ isOn, onToggle, ariaLabel, onLabel, offLabel }: ToggleProps) =
 };
 
 export default Toggle;
-
-
-

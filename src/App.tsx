@@ -86,7 +86,9 @@ const App = () => {
     <Container>
       <Section className="w-[1200px]! mx-auto">
         <Inline className="w-full justify-between gap-12">
-          <Badge>Last Updated: {lastUpdated} (+{lastUpdatedNowDaysInterval} days)</Badge>
+          <Badge>
+            Last Updated: {lastUpdated} (+{lastUpdatedNowDaysInterval} days)
+          </Badge>
           <Inline>
             <Inline gap={3}>
               <Text variant="section-meta-text">LANGUAGE</Text>
