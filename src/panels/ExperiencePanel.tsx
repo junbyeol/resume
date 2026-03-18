@@ -2,6 +2,7 @@ import { Card, Stack, Inline, Text, Link } from "../components/ui";
 import { Badge } from "../components/ui";
 import { Accordion } from "../components/Accordian";
 import { type LocaleSchema } from "../locales/kr";
+import { Fragment } from "react";
 
 interface Props {
   experiences: LocaleSchema["experiences"];
@@ -41,8 +42,8 @@ type ExperienceAdditionalInfo = NonNullable<
 
 interface ExperienceCardProps {
   name: string;
-  from: string;
-  to: string;
+  from?: string;
+  to?: string;
   period?: string;
   description: string;
   bullets: string[];
@@ -54,7 +55,7 @@ const ExperienceAdditionalInfoCard = ({
 }: {
   additional: ExperienceAdditionalInfo;
 }) => {
-  const { title, from, to, bullets, references, images, skills } = additional;
+  const { title, bullets, images, skills } = additional;
   const Skill = ({ skill }: { skill: string }) => {
     return (
       <div className="border border-text-muted border-opacity-20 rounded-sm px-2 py-0.5">
@@ -68,9 +69,14 @@ const ExperienceAdditionalInfoCard = ({
       <Stack gap={3}>
         <Inline className="w-full justify-between">
           <Text variant="section-title">{title}</Text>
-          <Text variant="section-meta-text">
-            {from} - {to}
-          </Text>
+          {"from" in additional &&
+            "to" in additional &&
+            additional.from &&
+            additional.to && (
+              <Text variant="section-meta-text">
+                {additional.from} - {additional.to}
+              </Text>
+            )}
         </Inline>
         <ul className="list-disc list-inside">
           {bullets.map((bullet) => (
@@ -89,25 +95,28 @@ const ExperienceAdditionalInfoCard = ({
           ))}
         </ul>
         <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <Skill key={skill} skill={skill} />
-          ))}
+          {skills && skills.map((skill) => <Skill key={skill} skill={skill} />)}
         </div>
 
-        {images.map((image) => (
-          <div>
-            <img src={image.src} />
-            <Text variant="section-body-small">{image.caption}</Text>
-          </div>
-        ))}
-        <ul className="list-none list-inside">
-          {references.map((reference) => (
-            <Link to={reference.link}>
-              <Text variant="section-title-secondary" className="underline">
-                {reference.name}
-              </Text>
-            </Link>
+        {images &&
+          images.map((image) => (
+            <div key={image.src}>
+              <img src={image.src} />
+              {"caption" in image && image.caption && (
+                <Text variant="section-body-small">{image.caption}</Text>
+              )}
+            </div>
           ))}
+        <ul className="list-none list-inside">
+          {"references" in additional &&
+            additional.references &&
+            additional.references.map((reference) => (
+              <Link key={reference.name} to={reference.link}>
+                <Text variant="section-title-secondary" className="underline">
+                  {reference.name}
+                </Text>
+              </Link>
+            ))}
         </ul>
       </Stack>
     </Card>
@@ -143,15 +152,12 @@ const ExperienceCard = ({
         {additionals && (
           <Accordion label="Additional Info." defaultOpen={true}>
             {additionals.map((additional, i) => (
-              <>
-                <ExperienceAdditionalInfoCard
-                  key={additional.title}
-                  additional={additional}
-                />
+              <Fragment key={i}>
+                <ExperienceAdditionalInfoCard additional={additional} />
                 {i !== additionals.length - 1 && (
                   <div className="my-4 h-[0.1px] bg-text-muted" />
                 )}
-              </>
+              </Fragment>
             ))}
           </Accordion>
         )}
