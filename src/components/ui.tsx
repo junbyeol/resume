@@ -99,7 +99,8 @@ interface _TextProps {
     | "section-title"
     | "section-meta-text"
     | "section-title-secondary"
-    | "section-body";
+    | "section-body"
+    | "section-body-small";
 }
 
 type TextProps = PolymorphicProps<"span" | "p" | "li"> & _TextProps;
@@ -113,6 +114,7 @@ const variantStyles = {
   "section-meta-text": "text-section-meta-text text-text-muted",
   "section-title-secondary": "text-section-title-secondary text-accent",
   "section-body": "text-section-body text-text",
+  "section-body-small": "text-section-body-small text-text-muted",
 };
 
 export const Text = ({

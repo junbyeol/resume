@@ -7,3 +7,4 @@ export const locales = {
 };
 
 export type Language = keyof typeof locales;
+export { type LocaleSchema } from "./kr.ts";

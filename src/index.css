@@ -53,10 +53,16 @@
   --text-section-body--line-height: 1.5rem; /* 24px */
   --text-section-body--letter-spacing: 0px;
   --text-section-body--font-weight: 400;
+
+  --text-section-body-small: 0.875rem; /* 14px */
+  --text-section-body-small--line-height: 1.375rem; /* 22px */
+  --text-section-body-small--letter-spacing: 0px;
+  --text-section-body-small--font-weight: 400;
 }
 
 :root {
-  --bg: hsl(0, 0%, 100%) --text: hsl(222, 47%, 11%);
+  --bg: hsl(0, 0%, 100%);
+  --text: hsl(222, 47%, 11%);
   --text-muted: hsl(215, 19%, 35%);
   --accent: hsl(165, 19%, 40%);
   --accent-muted: hsl(165, 17%, 95%);

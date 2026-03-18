@@ -35,6 +35,50 @@ export const kr = {
         "외주 개발사 선정 및 기술 역량 평가, 계약서 상 기술 명세 검토, 납품 산출물 기술 검수 등 수행",
         "Headless CMS(Strapi) 구축 및 운영을 전담하며 API 확장 및 커스터마이징을 통해 자사 공식 홈페이지·사내 BI 포털의 콘텐츠 관리 환경 고도화",
       ],
+      additionals: [
+        {
+          from: "2020.07",
+          to: "2021.01",
+          title: "쿠키런:킹덤 사전예약 및 바이럴 이벤트 백엔드 개발",
+          bullets: [
+            {
+              main: "자사 신규 게임 쿠키런:킹덤의 사전예약을 받고, 바이럴을 위한 각종 이벤트들이 포함된 서비스의 백엔드 개발",
+              subs: [
+                "다국적 사전예약자들의 이메일, 전화번호 등 개인정보를 수집",
+                "사전예약자마다 랜덤한 비주얼의 쿠키 캐릭터와 유저의 닉네임 등을 포함한 이미지를 생성하는 백엔드 개발(node-canvas)",
+                "전화번호 인증 및 마케팅을 위한 이메일 발송 API 등을 연동(sendinblue, AWS SES)",
+              ],
+            },
+          ],
+          references: [
+            {
+              name: "(기술블로그) 사전예약 서버 프로파일링으로 서버 병목찾아 개선하기",
+              link: "https://tech.devsisters.com/posts/perf-citizen-card/",
+            },
+            {
+              name: "(관련 기사) ‘쿠키런: 킹덤’, 사전예약 이벤트 진행",
+              link: "https://www.khgames.co.kr/news/articleView.html?idxno=125999",
+            },
+          ],
+          skills: [
+            "Node.js",
+            "TypeScript",
+            "GraphQL",
+            "MySQL",
+            "AWS(S3, SES, CF)",
+            "Terraform",
+            "Kubernetes",
+            "Artillery",
+          ],
+          images: [
+            {
+              src: "/ck-pre-registration.png",
+              caption:
+                "쿠키런:킹덤 사전예약 사이트 중 시민권 발급 이벤트의 모습",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "셀렉트스타",
