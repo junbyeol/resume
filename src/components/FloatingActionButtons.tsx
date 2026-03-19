@@ -8,6 +8,7 @@ type FloatingActionButtonLabels = {
 type FloatingActionButtonsProps = {
   labels: FloatingActionButtonLabels;
   resumePdfUrl?: string;
+  onDownloadResume?: () => void;
 };
 
 const baseButtonClassName =
@@ -16,6 +17,7 @@ const baseButtonClassName =
 export const FloatingActionButtons = ({
   labels,
   resumePdfUrl,
+  onDownloadResume,
 }: FloatingActionButtonsProps) => {
   const handleScrollTop = () => {
     const rootScrollContainer = document.getElementById("root");
@@ -36,6 +38,11 @@ export const FloatingActionButtons = ({
   };
 
   const handleDownloadResume = () => {
+    if (onDownloadResume) {
+      onDownloadResume();
+      return;
+    }
+
     if (!resumePdfUrl) {
       window.print();
       return;

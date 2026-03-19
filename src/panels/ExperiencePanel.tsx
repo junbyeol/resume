@@ -6,9 +6,13 @@ import { Fragment } from "react";
 
 interface Props {
   experiences: LocaleSchema["experiences"];
+  forceExpandAdditionals?: boolean;
 }
 
-export function ExperiencePanel({ experiences }: Props) {
+export function ExperiencePanel({
+  experiences,
+  forceExpandAdditionals = false,
+}: Props) {
   return (
     <Card>
       <Stack gap={8}>
@@ -28,6 +32,7 @@ export function ExperiencePanel({ experiences }: Props) {
               description={experience.description}
               bullets={experience.bullets}
               additionals={experience.additionals}
+              forceExpandAdditionals={forceExpandAdditionals}
             />
           ))}
         </Stack>
@@ -48,6 +53,7 @@ interface ExperienceCardProps {
   description: string;
   bullets: string[];
   additionals?: ExperienceAdditionalInfo[];
+  forceExpandAdditionals?: boolean;
 }
 
 const ExperienceAdditionalInfoCard = ({
@@ -101,7 +107,7 @@ const ExperienceAdditionalInfoCard = ({
         {images &&
           images.map((image) => (
             <div key={image.src}>
-              <img src={image.src} />
+              <img src={image.src} className="max-w-[480px] max-h-[240px]" />
               {"caption" in image && image.caption && (
                 <Text variant="section-body-small">{image.caption}</Text>
               )}
@@ -131,6 +137,7 @@ const ExperienceCard = ({
   description,
   bullets,
   additionals,
+  forceExpandAdditionals = false,
 }: ExperienceCardProps) => {
   return (
     <Card>
@@ -149,18 +156,30 @@ const ExperienceCard = ({
             </Text>
           ))}
         </ul>
-        {additionals && (
-          <Accordion label="Additional Info." defaultOpen={true}>
-            {additionals.map((additional, i) => (
-              <Fragment key={i}>
-                <ExperienceAdditionalInfoCard additional={additional} />
-                {i !== additionals.length - 1 && (
-                  <div className="my-4 h-[0.1px] bg-text-muted" />
-                )}
-              </Fragment>
-            ))}
-          </Accordion>
-        )}
+        {additionals &&
+          (forceExpandAdditionals ? (
+            <div className="mt-6 w-full rounded-[8px] bg-accent-muted p-8 text-left shadow-sm">
+              {additionals.map((additional, i) => (
+                <Fragment key={i}>
+                  <ExperienceAdditionalInfoCard additional={additional} />
+                  {i !== additionals.length - 1 && (
+                    <div className="my-4 h-[0.1px] bg-text-muted" />
+                  )}
+                </Fragment>
+              ))}
+            </div>
+          ) : (
+            <Accordion label="Additional Info." defaultOpen={true}>
+              {additionals.map((additional, i) => (
+                <Fragment key={i}>
+                  <ExperienceAdditionalInfoCard additional={additional} />
+                  {i !== additionals.length - 1 && (
+                    <div className="my-4 h-[0.1px] bg-text-muted" />
+                  )}
+                </Fragment>
+              ))}
+            </Accordion>
+          ))}
       </Stack>
     </Card>
   );

@@ -5,7 +5,7 @@ export const kr = {
     email: "yoonjs0510@gmail.com",
     github: "https://github.com/junbyeol",
     blog: "https://junbyeol.tistory.com/",
-    linkedin: "https://www.linkedin.com/in/junsungyoon/",
+    linkedin: "https://linkedin.com/in/junsungyoon/",
     fabScrollTop: "맨 위로",
     fabDownloadResume: "이력서 PDF",
     statement:

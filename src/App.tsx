@@ -90,7 +90,13 @@ const App = () => {
   } = locales[language];
   const { name, position, email, github, blog, linkedin, statement } =
     mainLocale;
-  const resumePdfUrl = undefined;
+  const handleDownloadResume = () => {
+    const printUrl = new URL(window.location.href);
+    printUrl.searchParams.set("print", "1");
+    printUrl.searchParams.set("lang", language);
+
+    window.open(printUrl.toString(), "_blank", "noopener,noreferrer");
+  };
 
   return (
     <Container>
@@ -188,7 +194,7 @@ const App = () => {
           scrollTop: mainLocale.fabScrollTop,
           downloadResume: mainLocale.fabDownloadResume,
         }}
-        resumePdfUrl={resumePdfUrl}
+        onDownloadResume={handleDownloadResume}
       />
     </Container>
   );

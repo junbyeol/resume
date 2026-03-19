@@ -75,3 +75,34 @@
   --accent: hsl(165, 19%, 60%);
   --accent-muted: hsl(165, 17%, 5%);
 }
+
+@media print {
+  :root,
+  .dark {
+    --bg: hsl(0, 0%, 100%) !important;
+    --text: hsl(222, 47%, 11%) !important;
+    --text-muted: hsl(215, 19%, 35%) !important;
+    --accent: hsl(165, 19%, 40%) !important;
+    --accent-muted: hsl(165, 17%, 95%) !important;
+  }
+
+  #root {
+    width: 100% !important;
+    max-width: 1200px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+    background-color: var(--bg) !important;
+  }
+
+  .print-desktop-container {
+    width: 100% !important;
+    max-width: 1200px !important;
+    overflow: visible !important;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

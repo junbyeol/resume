@@ -161,7 +161,7 @@ export const Link = ({ to, children, className }: ActionProps) => {
   return (
     <a
       href={to}
-      className={`cursor-pointer transition-all hover:scale-95 ${className}`}
+      className={`cursor-pointer transition-all hover:underline ${className}`}
     >
       {children}
     </a>

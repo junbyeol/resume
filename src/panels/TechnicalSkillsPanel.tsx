@@ -4,22 +4,35 @@ import { Card, Text, Inline } from "../components/ui";
 
 interface Props {
   skills: Skill[];
+  isPrintView?: boolean;
 }
 
-export function TechnicalSkillsPanel({ skills }: Props) {
+export function TechnicalSkillsPanel({ skills, isPrintView = false }: Props) {
   return (
     <Card>
       <Stack gap={8}>
         <Text variant="section-header">Technical Skills</Text>
-        <Stack gap={8}>
-          {skills.map((skill) => (
-            <TechnicalSkillsCard
-              key={skill.title}
-              title={skill.title}
-              tags={skill.tags}
-            />
-          ))}
-        </Stack>
+        {isPrintView ? (
+          <div className={"grid grid-cols-2 gap-4"}>
+            {skills.map((skill) => (
+              <TechnicalSkillsCard
+                key={skill.title}
+                title={skill.title}
+                tags={skill.tags}
+              />
+            ))}
+          </div>
+        ) : (
+          <Stack gap={8}>
+            {skills.map((skill) => (
+              <TechnicalSkillsCard
+                key={skill.title}
+                title={skill.title}
+                tags={skill.tags}
+              />
+            ))}
+          </Stack>
+        )}
       </Stack>
     </Card>
   );

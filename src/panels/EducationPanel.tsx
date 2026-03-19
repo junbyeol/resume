@@ -3,14 +3,15 @@ import { type LocaleSchema } from "../locales/kr";
 
 interface Props {
   educations: LocaleSchema["educations"];
+  isPrintView?: boolean;
 }
 
-export function EducationPanel({ educations }: Props) {
+export function EducationPanel({ educations, isPrintView = false }: Props) {
   return (
     <Card>
-      <Stack gap={8}>
+      <Stack gap={isPrintView ? 2 : 8}>
         <Text variant="section-header">Education</Text>
-        <Stack gap={8}>
+        <Stack gap={isPrintView ? 2 : 8}>
           {educations.map((education) => (
             <EducationCard
               key={education.name}
