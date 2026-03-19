@@ -6,6 +6,8 @@ export const kr = {
     github: "https://github.com/junbyeol",
     blog: "https://junbyeol.tistory.com/",
     linkedin: "https://www.linkedin.com/in/junsungyoon/",
+    fabScrollTop: "맨 위로",
+    fabDownloadResume: "이력서 PDF",
     statement:
       "4년 이상의 실무 경험을 보유한 소프트웨어 엔지니어 윤준성입니다.\nTypeScript와 Node.js 기반의 백엔드 개발을 주력으로, 실제 서비스 환경에서 웹·앱 프로덕트를 개발하고 운영해왔습니다.\nReact 및 React Native를 활용한 프론트엔드 구현부터 백엔드 설계, 배포 및 인프라 구성까지 전 과정을 단독으로 책임지고 완결한 경험이 다수 있으며, AWS, GCP 환경에서 Kubernetes와 Lambda를 포함한 다양한 배포 아키텍처를 실무에 적용해왔습니다.\n현재 2026년 여름 졸업을 목표로 KAIST 학부 과정을 마무리하고 있습니다.",
   },

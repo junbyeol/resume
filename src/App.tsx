@@ -10,6 +10,7 @@ import {
   Badge,
 } from "./components/ui";
 import Toggle from "./components/Toggle";
+import { FloatingActionButtons } from "./components/FloatingActionButtons";
 import profileImage from "./assets/profile.png";
 import { LuMoon, LuSun, LuMail } from "react-icons/lu";
 import { SiGithub, SiTistory, SiLinkedin } from "react-icons/si";
@@ -89,6 +90,7 @@ const App = () => {
   } = locales[language];
   const { name, position, email, github, blog, linkedin, statement } =
     mainLocale;
+  const resumePdfUrl = undefined;
 
   return (
     <Container>
@@ -181,6 +183,13 @@ const App = () => {
           </div>
         </div>
       </Section>
+      <FloatingActionButtons
+        labels={{
+          scrollTop: mainLocale.fabScrollTop,
+          downloadResume: mainLocale.fabDownloadResume,
+        }}
+        resumePdfUrl={resumePdfUrl}
+      />
     </Container>
   );
 };

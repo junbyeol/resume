@@ -8,6 +8,8 @@ export const en: LocaleSchema = {
     github: "https://github.com/junbyeol",
     blog: "https://junbyeol.tistory.com/",
     linkedin: "https://www.linkedin.com/in/junsungyoon/",
+    fabScrollTop: "Back to top",
+    fabDownloadResume: "Resume PDF",
     statement:
       "Software engineer with 4+ years of professional experience building and operating web and mobile products in production environments.\nSpecializing in backend development with TypeScript and Node.js.\nExperienced in end-to-end product development, from React/React Native frontend implementation to backend architecture, deployment, and infrastructure setup on AWS and GCP.\nUndergraduate student at KAIST, expected to graduate in Summer 2026.",
   },
