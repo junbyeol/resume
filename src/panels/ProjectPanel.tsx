@@ -11,7 +11,7 @@ export function ProjectPanel({ projects, isPrintView = false }: Props) {
     <Card>
       <Stack gap={isPrintView ? 2 : 8}>
         <Text variant="section-header">Projects</Text>
-        <Stack gap={isPrintView ? 2 : 8}>
+        <Stack gap={isPrintView ? 1 : 8}>
           {projects.map((project) => (
             <ProjectCard
               key={project.name}
@@ -35,7 +35,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ name, date, link }: ProjectCardProps) => {
   return (
     <Card>
-      <Stack gap={3} align="stretch">
+      <Stack gap={1} align="stretch">
         <Inline className="flex-1 justify-between">
           <Text variant="section-title-secondary">{name}</Text>
           <Text variant="section-meta-text">{date}</Text>

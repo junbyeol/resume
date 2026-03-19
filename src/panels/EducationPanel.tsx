@@ -11,7 +11,7 @@ export function EducationPanel({ educations, isPrintView = false }: Props) {
     <Card>
       <Stack gap={isPrintView ? 2 : 8}>
         <Text variant="section-header">Education</Text>
-        <Stack gap={isPrintView ? 2 : 8}>
+        <Stack gap={isPrintView ? 1 : 8}>
           {educations.map((education) => (
             <EducationCard
               key={education.name}

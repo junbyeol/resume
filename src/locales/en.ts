@@ -5,9 +5,9 @@ export const en: LocaleSchema = {
     name: "Junsung Yoon",
     position: "Software Engineer",
     email: "yoonjs0510@gmail.com",
-    github: "https://github.com/junbyeol",
-    blog: "https://junbyeol.tistory.com/",
-    linkedin: "https://linkedin.com/in/junsungyoon/",
+    github: "https://github.junbyeol.me",
+    blog: "https://blog.junbyeol.me/",
+    linkedin: "https://linkedin.junbyeol.me",
     fabScrollTop: "Back to top",
     fabDownloadResume: "Resume PDF",
     statement:
@@ -353,11 +353,6 @@ export const en: LocaleSchema = {
   ],
   additionals: [
     {
-      name: "TOEFL iBT 96점",
-      description: "Reading 30/30",
-      date: "2025.08",
-    },
-    {
       name: "데브시스터즈 사내 백엔드 컨퍼런스에서 발표",
       date: "2022.02",
       description: "전사 회의용 라이브 스트리밍 지원 플랫폼의 개발 경험을 공유",
@@ -381,12 +376,13 @@ export const en: LocaleSchema = {
       description: "데브시스터즈, 그래비티랩스",
     },
     {
-      name: "정보처리산업기사 취득",
-      date: "2020.09",
-    },
-    {
-      name: "고등학생 정보올림피아드",
-      description: "2015 수원시 예선 동상",
+      name: "보유 자격",
+      bullets: [
+        "TOEFL iBT 96점 (2025.08)",
+        "현역 산업기능요원 만기 복무 (2021.10~2024.08, 34개월)",
+        "정보처리산업기사(2020.09)",
+        "고등학생 정보올림피아드(2015 수원시 예선 동상)",
+      ],
     },
   ],
 };

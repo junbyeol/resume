@@ -66,8 +66,10 @@ const PrintApp = () => {
 
   return (
     <Container className="print-desktop-container">
-      <Section className="mx-auto w-full max-w-[1200px] h-[60px]">
-        <div className="h-full" />
+      <Section className="flex justify-end mx-auto w-full max-w-[1200px] h-[60px]">
+        <Text variant="section-body-small">
+          본 이력서는 "resume.junbyeol.me"에서도 확인 가능합니다.
+        </Text>
       </Section>
       <Section className="bg-accent-muted print-avoid-break">
         <Card className="mx-auto w-full max-w-[1200px]">

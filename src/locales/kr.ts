@@ -3,9 +3,9 @@ export const kr = {
     name: "윤준성",
     position: "소프트웨어 엔지니어",
     email: "yoonjs0510@gmail.com",
-    github: "https://github.com/junbyeol",
-    blog: "https://junbyeol.tistory.com/",
-    linkedin: "https://linkedin.com/in/junsungyoon/",
+    github: "https://github.junbyeol.me",
+    blog: "https://blog.junbyeol.me",
+    linkedin: "https://linkedin.junbyeol.me",
     fabScrollTop: "맨 위로",
     fabDownloadResume: "이력서 PDF",
     statement:
@@ -70,7 +70,7 @@ export const kr = {
       description: "쿠키런 IP 게임회사, 웹서비스셀 백엔드 포지션",
       bullets: [
         "자사 신작 게임 사전예약, 이벤트 페이지 백엔드 개발 및 트래픽 대응 구조 설계",
-        "전사 미팅을 위해 Slack, OBS, 여러 웹 프론트들을 WebSocket 및 REST API로 통합하여 실시간 질문 큐잉, 자막 송출 및 방송 제어 어드민 시스템 구축. 프로젝트 리드로 참여.",
+        "전사 미팅을 위해 Slack, OBS, 여러 웹 프론트들을 WebSocket 및 REST API로 통합하여 실시간 질문 관리, 자막 송출 및 방송 제어 어드민 시스템 구축. 프로젝트 리드로 참여.",
         "REST API 서버, AWS 리소스(S3, RDS, Route53), Kubernetes 클러스터 및 IaC(Terraform) 등 다양한 팀이 보유한 리소스들 전반 운영 및 유지보수",
         "외주 개발사 선정 및 기술 역량 평가, 계약서 상 기술 명세 검토, 납품 산출물 기술 검수 등 수행",
         "Headless CMS(Strapi) 구축 및 운영을 전담하며 API 확장 및 커스터마이징을 통해 자사 공식 홈페이지·사내 BI 포털의 콘텐츠 관리 환경 고도화",
@@ -143,10 +143,10 @@ export const kr = {
         {
           from: "2021.02",
           to: "2021.05",
-          title: "브랜딩 사이트들을 위한 CMS(Content Management System) 구축",
+          title: "브랜딩 사이트들을 위한 CMS 구축",
           bullets: [
             {
-              main: "자사 공식 페이지, 게임별 공식 페이지 등 컨텐츠 중심의 사이트들의 컨텐츠 교체 자동화",
+              main: "CMS(Content Management System)를 통한 자사 공식 페이지, 게임별 공식 페이지 등 컨텐츠 중심의 사이트들의 컨텐츠 교체 자동화",
             },
             {
               main: "높은 커스텀 자유도를 가진 오픈소스 Headless CMS Strapi를 이용, 다양한 기능들을 추가함",
@@ -282,7 +282,7 @@ export const kr = {
           title: "근태관리용 Slack 챗봇 개발",
           bullets: [
             {
-              main: "슬랙 명령어를 통해, 사원들의 출퇴근 및 월간 근무시간 관리 등을 담당하는 챗봇을 개발",
+              main: "슬랙 명령어를 통해, 근태 및 월간 근무시간을 관리하는 챗봇을 개발",
             },
           ],
           skills: ["Spring Framework", "Kotlin", "MySQL"],
@@ -314,7 +314,7 @@ export const kr = {
           ],
           images: [
             {
-              src: "/cashmission.webp",
+              src: "/cashmission.png",
             },
           ],
         },
@@ -350,11 +350,6 @@ export const kr = {
   ],
   additionals: [
     {
-      name: "TOEFL iBT 96점",
-      description: "Reading 30/30",
-      date: "2025.08",
-    },
-    {
       name: "데브시스터즈 사내 백엔드 컨퍼런스에서 발표",
       date: "2022.02",
       description: "전사 회의용 라이브 스트리밍 지원 플랫폼의 개발 경험을 공유",
@@ -373,17 +368,13 @@ export const kr = {
       link: "https://tech.devsisters.com/posts/perf-citizen-card/",
     },
     {
-      name: "현역 산업기능요원 만기 복무",
-      date: "2021.10~2024.08(34개월)",
-      description: "데브시스터즈, 그래비티랩스",
-    },
-    {
-      name: "정보처리산업기사 취득",
-      date: "2020.09",
-    },
-    {
-      name: "고등학생 정보올림피아드",
-      description: "2015 수원시 예선 동상",
+      name: "보유 자격",
+      bullets: [
+        "TOEFL iBT 96점 (2025.08)",
+        "현역 산업기능요원 만기 복무 (2021.10~2024.08, 34개월)",
+        "정보처리산업기사(2020.09)",
+        "고등학생 정보올림피아드(2015 수원시 예선 동상)",
+      ],
     },
   ],
 };

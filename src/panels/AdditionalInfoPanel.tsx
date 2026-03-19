@@ -14,7 +14,7 @@ export const AdditionalInfoPanel = ({
     <Card>
       <Stack gap={isPrintView ? 2 : 8}>
         <Text variant="section-header">Additional Info.</Text>
-        <Stack gap={isPrintView ? 2 : 8}>
+        <Stack gap={isPrintView ? 1 : 8}>
           {additionals.map((additional) => (
             <AdditionalInfoCard
               key={additional.name}
