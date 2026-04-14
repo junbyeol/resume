@@ -80,11 +80,9 @@ const App = () => {
   const controlsBar = (
     <Section className={isMobile ? "w-full" : "w-[1200px]! mx-auto"}>
       <Inline className="w-full justify-between gap-4">
-        {!isMobile && (
-          <Badge>
-            Last Updated: {lastUpdated} (+{lastUpdatedNowDaysInterval} days)
-          </Badge>
-        )}
+        <Badge>
+          Last Updated: {lastUpdated} (+{lastUpdatedNowDaysInterval} days)
+        </Badge>
         <Inline className={isMobile ? "w-full justify-end" : ""}>
           <Inline gap={3}>
             <Text variant="section-meta-text">LANGUAGE</Text>
@@ -115,7 +113,11 @@ const App = () => {
 
   return (
     <Container>
-      {controlsBar}
+      {isMobile ? (
+        <div className="h-10 shrink-0" aria-hidden="true" />
+      ) : (
+        controlsBar
+      )}
       <ActiveLayout locale={locale} />
       <FloatingActionButtons
         labels={{
@@ -123,6 +125,7 @@ const App = () => {
           downloadResume: mainLocale.fabDownloadResume,
         }}
         onDownloadResume={handleDownloadResume}
+        isMobile={isMobile}
       />
     </Container>
   );

@@ -9,6 +9,7 @@ type FloatingActionButtonsProps = {
   labels: FloatingActionButtonLabels;
   resumePdfUrl?: string;
   onDownloadResume?: () => void;
+  isMobile?: boolean;
 };
 
 const baseButtonClassName =
@@ -18,6 +19,7 @@ export const FloatingActionButtons = ({
   labels,
   resumePdfUrl,
   onDownloadResume,
+  isMobile = false,
 }: FloatingActionButtonsProps) => {
   const handleScrollTop = () => {
     const rootScrollContainer = document.getElementById("root");
@@ -65,18 +67,20 @@ export const FloatingActionButtons = ({
         <LuArrowUp aria-hidden="true" />
         <span>{labels.scrollTop}</span>
       </button>
-      <button
-        type="button"
-        aria-label={labels.downloadResume}
-        title={labels.downloadResume}
-        className={
-          baseButtonClassName + " bg-accent text-background hover:opacity-80"
-        }
-        onClick={handleDownloadResume}
-      >
-        <LuDownload aria-hidden="true" />
-        <span>{labels.downloadResume}</span>
-      </button>
+      {!isMobile && (
+        <button
+          type="button"
+          aria-label={labels.downloadResume}
+          title={labels.downloadResume}
+          className={
+            baseButtonClassName + " bg-accent text-background hover:opacity-80"
+          }
+          onClick={handleDownloadResume}
+        >
+          <LuDownload aria-hidden="true" />
+          <span>{labels.downloadResume}</span>
+        </button>
+      )}
     </div>
   );
 };

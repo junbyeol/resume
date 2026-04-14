@@ -14,7 +14,7 @@ export const AdditionalInfoPanel = ({
     <Card>
       <Stack gap={isCompact ? 2 : 8}>
         <Text variant="section-header">Additional Info.</Text>
-        <Stack gap={isCompact ? 1 : 8}>
+        <Stack gap={isCompact ? 1 : 8} className="w-full">
           {additionals.map((additional) => (
             <AdditionalInfoCard
               key={additional.name}
@@ -51,7 +51,7 @@ const AdditionalInfoCard = ({
 }: AdditionalInfoCardProps) => {
   return (
     <Card>
-      <Inline className="justify-between">
+      <Inline className="w-full justify-between">
         {link ? (
           <Link to={link}>
             <Text

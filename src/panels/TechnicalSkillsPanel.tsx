@@ -13,7 +13,7 @@ export function TechnicalSkillsPanel({ skills, isCompact = false }: Props) {
       <Stack gap={8}>
         <Text variant="section-header">Technical Skills</Text>
         {isCompact ? (
-          <div className={"grid grid-cols-2 gap-4"}>
+          <div className={"grid grid-cols-2 gap-4 w-full min-w-0"}>
             {skills.map((skill) => (
               <TechnicalSkillsCard
                 key={skill.title}
@@ -23,7 +23,7 @@ export function TechnicalSkillsPanel({ skills, isCompact = false }: Props) {
             ))}
           </div>
         ) : (
-          <Stack gap={8}>
+          <Stack gap={8} className="w-full">
             {skills.map((skill) => (
               <TechnicalSkillsCard
                 key={skill.title}
