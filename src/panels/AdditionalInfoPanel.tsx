@@ -1,5 +1,5 @@
 import { Card, Text, Stack, Inline, Link } from "../components/ui";
-import { type LocaleSchema } from "../locales/kr";
+import { type LocaleSchema } from "../locales";
 
 interface Props {
   additionals: LocaleSchema["additionals"];

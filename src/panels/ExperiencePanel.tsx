@@ -1,7 +1,7 @@
 import { Card, Stack, Inline, Text, Link } from "../components/ui";
 import { Badge } from "../components/ui";
 import { Accordion } from "../components/Accordian";
-import { type LocaleSchema } from "../locales/kr";
+import { type LocaleSchema } from "../locales";
 import { Fragment } from "react";
 
 interface Props {
