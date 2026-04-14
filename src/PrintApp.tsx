@@ -123,13 +123,15 @@ const PrintApp = () => {
           </Stack>
         </Card>
       </Section>
-      <Section className="mx-auto w-full max-w-[1200px]">
+      <Section className="mx-auto w-full max-w-[1200px] flex flex-col">
         <div className="grid w-full gap-20">
           <TechnicalSkillsPanel skills={skills} isPrintView={true} />
           <ExperiencePanel
             experiences={experiencesLocale}
             forceExpandAdditionals={true}
           />
+        </div>
+        <div className="mt-10 grid w-full">
           <EducationPanel educations={educationsLocale} isPrintView={true} />
           {projectsLocale && (
             <ProjectPanel projects={projectsLocale} isPrintView={true} />
