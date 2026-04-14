@@ -3,18 +3,18 @@ import { type LocaleSchema } from "../locales";
 
 interface Props {
   additionals: LocaleSchema["additionals"];
-  isPrintView?: boolean;
+  isCompact?: boolean;
 }
 
 export const AdditionalInfoPanel = ({
   additionals,
-  isPrintView = false,
+  isCompact = false,
 }: Props) => {
   return (
     <Card>
-      <Stack gap={isPrintView ? 2 : 8}>
+      <Stack gap={isCompact ? 2 : 8}>
         <Text variant="section-header">Additional Info.</Text>
-        <Stack gap={isPrintView ? 1 : 8}>
+        <Stack gap={isCompact ? 1 : 8}>
           {additionals.map((additional) => (
             <AdditionalInfoCard
               key={additional.name}
@@ -23,7 +23,7 @@ export const AdditionalInfoPanel = ({
               link={additional.link}
               description={additional.description}
               bullets={additional.bullets}
-              isPrintView={isPrintView}
+              isCompact={isCompact}
             />
           ))}
         </Stack>
@@ -38,7 +38,7 @@ interface AdditionalInfoCardProps {
   link?: string;
   description?: string;
   bullets?: string[];
-  isPrintView?: boolean;
+  isCompact?: boolean;
 }
 
 const AdditionalInfoCard = ({
@@ -47,7 +47,7 @@ const AdditionalInfoCard = ({
   link,
   description,
   bullets,
-  isPrintView = false,
+  isCompact = false,
 }: AdditionalInfoCardProps) => {
   return (
     <Card>
@@ -56,11 +56,11 @@ const AdditionalInfoCard = ({
           <Link to={link}>
             <Text
               variant="section-title-secondary"
-              className={isPrintView ? "" : "underline"}
+              className={isCompact ? "" : "underline"}
             >
               {name}
             </Text>
-            {isPrintView && <Text variant="section-body">{link}</Text>}
+            {isCompact && <Text variant="section-body">{link}</Text>}
           </Link>
         ) : (
           <Text variant="section-title-secondary">{name}</Text>

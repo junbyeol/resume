@@ -14,13 +14,9 @@ import { ProjectPanel } from "../panels/ProjectPanel";
 
 type SingleColumnLayoutProps = {
   locale: LocaleSchema;
-  isPrintView?: boolean;
 };
 
-const SingleColumnLayout = ({
-  locale,
-  isPrintView = false,
-}: SingleColumnLayoutProps) => {
+const SingleColumnLayout = ({ locale }: SingleColumnLayoutProps) => {
   const {
     main: mainLocale,
     experiences: experiencesLocale,
@@ -85,24 +81,18 @@ const SingleColumnLayout = ({
       </Section>
       <Section className="mx-auto w-full max-w-[1200px] flex flex-col">
         <div className="grid w-full gap-20">
-          <TechnicalSkillsPanel skills={skills} isPrintView={isPrintView} />
+          <TechnicalSkillsPanel skills={skills} isCompact />
           <ExperiencePanel
             experiences={experiencesLocale}
-            forceExpandAdditionals={isPrintView}
+            forceExpandAdditionals={true} // 프린트 화면에서 무조건 펼쳐져 있어야 함
           />
         </div>
         <div className="mt-10 grid w-full">
-          <EducationPanel
-            educations={educationsLocale}
-            isPrintView={isPrintView}
-          />
+          <EducationPanel educations={educationsLocale} isCompact />
           {projectsLocale && (
-            <ProjectPanel projects={projectsLocale} isPrintView={isPrintView} />
+            <ProjectPanel projects={projectsLocale} isCompact />
           )}
-          <AdditionalInfoPanel
-            additionals={additionalsLocale}
-            isPrintView={isPrintView}
-          />
+          <AdditionalInfoPanel additionals={additionalsLocale} isCompact />
         </div>
       </Section>
     </>

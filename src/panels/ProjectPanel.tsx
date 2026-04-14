@@ -3,15 +3,15 @@ import { type LocaleSchema } from "../locales";
 
 interface Props {
   projects: LocaleSchema["projects"];
-  isPrintView?: boolean;
+  isCompact?: boolean;
 }
 
-export function ProjectPanel({ projects, isPrintView = false }: Props) {
+export function ProjectPanel({ projects, isCompact = false }: Props) {
   return (
     <Card>
-      <Stack gap={isPrintView ? 2 : 8}>
+      <Stack gap={isCompact ? 2 : 8}>
         <Text variant="section-header">Projects</Text>
-        <Stack gap={isPrintView ? 1 : 8}>
+        <Stack gap={isCompact ? 1 : 8}>
           {projects.map((project) => (
             <ProjectCard
               key={project.name}

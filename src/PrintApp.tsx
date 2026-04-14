@@ -41,7 +41,7 @@ const PrintApp = () => {
           본 이력서는 "resume.junbyeol.me"에서도 확인 가능합니다.
         </Text>
       </Section>
-      <SingleColumnLayout locale={locale} isPrintView />
+      <SingleColumnLayout locale={locale} />
     </Container>
   );
 };
