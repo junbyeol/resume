@@ -7,6 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/resume-app
+  DEPLOY_PATH: "~/garage-infra"
 
 jobs:
   build-and-push:
@@ -31,6 +32,8 @@ jobs:
         with:
           context: .
           push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
   deploy:
@@ -45,7 +48,7 @@ jobs:
           key: ${{ secrets.GCP_SSH_KEY }}
           port: ${{ secrets.GCP_SSH_PORT }}
           script: |
-            cd ~/resume
+            cd ${{ env.DEPLOY_PATH }}
             
             # 1. GHCR 로그인 (서버에서도 이미지를 가져올 권한이 필요함)
             # 여기서는 편의상 패스워드 대신 GitHub 패키지 공개 설정을 권장하지만, 
