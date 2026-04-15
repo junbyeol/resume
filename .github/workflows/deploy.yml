@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/resume-app
-  DEPLOY_PATH: "~/garage-infra"
+  DEPLOY_PATH: "~/first-garage-machine/infra"
 
 jobs:
   build-and-push:
