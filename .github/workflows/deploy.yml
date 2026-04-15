@@ -46,15 +46,14 @@ jobs:
           key: ${{ secrets.GCP_SSH_KEY }}
           port: ${{ secrets.GCP_SSH_PORT }}
           script: |
+            # 에러 발생 시 즉시 중단 및 실패 처리
+            # https://github.com/marketplace/actions/ssh-remote-commands
+            set -e 
+
             cd ${{ env.DEPLOY_PATH }}
-            
-            # 1. GHCR 로그인 (서버에서도 이미지를 가져올 권한이 필요함)
-            # 여기서는 편의상 패스워드 대신 GitHub 패키지 공개 설정을 권장하지만, 
-            # 보안을 위해 아래 명령어를 한 번은 수동으로 해줘야 할 수 있습니다.
-            
-            # 2. 새 이미지 가져오기 및 컨테이너 재시작
+
             docker compose pull resume-app
             docker compose up -d resume-app
-            
-            # 3. 오래된 이미지 정리
+
+            # 오래된 이미지 정리
             docker image prune -f
