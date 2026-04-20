@@ -60,7 +60,7 @@ type Education = {
 
 type Project = {
   name: B;
-  date: B;
+  date?: B;
   link?: string;
 };
 
@@ -664,8 +664,15 @@ const content: BilingualContent = {
   projects: [
     {
       name: {
+        kr: "junbyeol.me(개인 웹사이트)",
+        en: "junbyeol.me(Personal Page)",
+      },
+      link: "https://junbyeol.me",
+    },
+    {
+      name: {
         kr: "한국약학대학생연합(KNAPS) 공식 사이트 외주 작업",
-        en: "Official Website for KNAPS (Korean National Association of Pharmacy Students)",
+        en: "Outsourcing: Official Website for KNAPS (Korean National Association of Pharmacy Students)",
       },
       date: { kr: "2025.08", en: "Aug 2025" },
       link: "https://knaps.or.kr",
@@ -673,7 +680,7 @@ const content: BilingualContent = {
     {
       name: {
         kr: "카이스트 총학생회 공식 사이트 외주 작업(현재 폐쇄)",
-        en: "Official Website for KAIST Student Council (Currently Closed)",
+        en: "Outsourcing: Official Website for KAIST Student Council (Currently Closed)",
       },
       date: { kr: "2020.03 ~ 2020.06", en: "Mar 2020 ~ Jun 2020" },
     },
@@ -716,7 +723,7 @@ const content: BilingualContent = {
       link: "https://tech.devsisters.com/posts/perf-citizen-card/",
     },
     {
-      name: { kr: "보유 자격", en: "Credentials" },
+      name: { kr: "보유 자격", en: "Certifications" },
       bullets: [
         {
           kr: "TOEFL iBT 96점 (2025.08)",
@@ -724,7 +731,7 @@ const content: BilingualContent = {
         },
         {
           kr: "현역 산업기능요원 만기 복무 (2021.10~2024.08, 34개월)",
-          en: "Completed Active Industrial Technical Personnel Service (Oct 2021 – Aug 2024, 34 months)",
+          en: "Military Service in Industrial Service (Oct 2021 – Aug 2024, 34 months)",
         },
         {
           kr: "정보처리산업기사(2020.09)",

@@ -28,7 +28,7 @@ export function ProjectPanel({ projects, isCompact = false }: Props) {
 
 interface ProjectCardProps {
   name: string;
-  date: string;
+  date?: string;
   link?: string;
 }
 
@@ -38,7 +38,7 @@ const ProjectCard = ({ name, date, link }: ProjectCardProps) => {
       <Stack gap={1} align="stretch">
         <Inline className="flex-1 justify-between">
           <Text variant="section-title-secondary">{name}</Text>
-          <Text variant="section-meta-text">{date}</Text>
+          {date && <Text variant="section-meta-text">{date}</Text>}
         </Inline>
         {link && <Link to={link}>{link}</Link>}
       </Stack>
