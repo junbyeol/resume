@@ -2,22 +2,23 @@ export const skills = [
   {
     title: "Backend",
     tags: ["TypeScript", "Node.js", "WebSocket(Socket.IO)", "GraphQL"],
-  },
-  {
-    title: "Database",
-    tags: ["Mysql", "MongoDB", "Redis"],
+    ghosts: ["Kotlin", "Spring Framework"],
   },
   {
     title: "Cloud & Infrastructure",
     tags: [
       "AWS",
-      "GCP",
+      "Serverless(Lambda)",
       "Kubernetes",
       "Docker",
-      "Serverless(Lambda)",
-      "IaC(terraform)",
       "CI/CD(Github Actions)",
+      "IaC(terraform)",
     ],
+    ghosts: ["GCP"],
+  },
+  {
+    title: "Database",
+    tags: ["Mysql", "MongoDB", "Redis"],
   },
   {
     title: "Frontend",
