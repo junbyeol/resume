@@ -66,7 +66,7 @@ const TechnicalSkillsCard = ({
   return (
     <Card>
       <Stack gap={3}>
-        <Text variant="section-title-secondary">{title}</Text>
+        <Text variant="section-header">{title}</Text>
         <Inline className="flex-wrap">
           {tags.map((tag) => (
             <Tag key={tag} text={tag} />
