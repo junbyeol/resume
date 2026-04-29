@@ -2,7 +2,7 @@ export const skills = [
   {
     title: "Backend",
     tags: ["TypeScript", "Node.js", "WebSocket(Socket.IO)", "GraphQL"],
-    ghosts: ["Kotlin", "Spring Framework"],
+    ghosts: ["Kotlin", "Spring Framework", "Python"],
   },
   {
     title: "Cloud & Infrastructure",
