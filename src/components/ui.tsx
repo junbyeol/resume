@@ -59,7 +59,7 @@ export const Stack = ({
 }: _BaseProps & _SpacingProps) => {
   return (
     <div
-      className={`flex flex-col ${gapStyles[gap]} ${alignStyles[align]} ${className}`}
+      className={`flex flex-col ${gapStyles[gap]} ${alignStyles[align]} ${className ?? ""}`}
     >
       {children}
     </div>
@@ -74,7 +74,7 @@ export const Inline = ({
 }: _BaseProps & _SpacingProps) => {
   return (
     <div
-      className={`flex flex-row ${gapStyles[gap]} ${alignStyles[align]} ${className}`}
+      className={`flex flex-row ${gapStyles[gap]} ${alignStyles[align]} ${className ?? ""}`}
     >
       {children}
     </div>

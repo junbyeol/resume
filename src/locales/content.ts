@@ -117,7 +117,7 @@ const content: BilingualContent = {
       },
       bullets: [
         {
-          kr: "기능 단위 프론트엔드(React Native)·백엔드(TypeScript, Node.js, Lambda) 설계·개발·배포 전 과정 단독 수행",
+          kr: "기능 단위 프론트엔드(React Native, React)·백엔드(TypeScript, Node.js, Lambda) 설계·개발·배포 전 과정 단독 수행",
           en: "Solely managed the full-stack lifecycle—from architecture to deployment—for feature-specific modules using TypeScript, Node.js, and AWS Lambda.",
         },
         {
@@ -138,45 +138,33 @@ const content: BilingualContent = {
           bullets: [
             {
               main: {
-                kr: "걸음수 기반 리워드 앱 '머니워크'의 신규 기능 다수 풀스택 개발",
+                kr: "걸음수 기반 리워드 앱 '머니워크'의 신규 기능 및 서비스 전반 개발",
                 en: "Full-stack development of multiple new features for step-count reward app 'MoneyWalk'",
               },
               subs: [
                 {
-                  kr: "InBody API 연동을 통한 사용자 신체 정보 조회 및 수집 기능 구현",
+                  kr: "InBody API 연동을 통한 사용자 신체 데이터 조회 및 수집 기능 백엔드 구현",
                   en: "Implemented user body information retrieval and collection via InBody API integration",
                 },
                 {
-                  kr: "Linkprice API 연동을 통한 제휴 상품 구매 시 포인트 적립 및 배치 정산 시스템 구축",
+                  kr: "Linkprice API 연동을 통한 제휴 상품 구매 포인트 적립 및 배치 정산 시스템 풀스택 개발",
                   en: "Built a point accumulation and batch settlement system for affiliate product purchases via Linkprice API",
                 },
                 {
-                  kr: "출석 체크 및 데일리 미션 기능 구현",
-                  en: "Implemented attendance check and daily mission features",
+                  kr: "사용자 리텐션을 위한 출석 체크 및 데일리 미션 기능 풀스택 개발",
+                  en: "Implemented attendance check and daily mission features for user retention",
                 },
                 {
-                  kr: "앱 내 포인트로 구매 가능한 복권 및 당첨자 정산 배치 시스템 구현",
-                  en: "Implemented a lottery system purchasable with in-app points and a batch winner payout system",
-                },
-              ],
-            },
-            {
-              main: {
-                kr: "유저 획득(acquisition)을 위한 앱 내 이벤트 기능 및 웹 페이지 개발",
-                en: "Developed in-app event features and web pages for user acquisition",
-              },
-              subs: [
-                {
-                  kr: "카카오톡 공유 유도 및 공유 여부 확인 기능 연동",
-                  en: "Integrated KakaoTalk sharing prompts and share verification",
+                  kr: "앱 내 포인트 기반 복권 시스템 개선 및 당첨자 정산 배치 시스템 구현",
+                  en: "Improved the lottery system with in-app points and implemented a batch winner payout system",
                 },
                 {
-                  kr: "사용자 연락처 기반 간편 홍보 문자 메시지 전송 기능 구현",
-                  en: "Implemented a contact-based promotional SMS sending feature",
-                },
-                {
-                  kr: "React Native 및 Moti 애니메이션을 활용한 모바일 게임 개발",
+                  kr: "React Native 및 Moti 애니메이션을 활용한 앱 내 모바일 게임 개발",
                   en: "Developed a mobile game using React Native and Moti animations",
+                },
+                {
+                  kr: "OS 권한 획득을 통한 기기 연락처 연동 및 맞춤형 홍보 문자 발송 유도 기능 풀스택 개발",
+                  en: "Developed a feature to guide users to send personalized promotional SMS messages by obtaining OS permissions to link their device contacts",
                 },
               ],
             },
@@ -226,6 +214,78 @@ const content: BilingualContent = {
         },
       ],
       additionals: [
+        {
+          title: {
+            kr: "인프라 운영 및 상시 업무",
+            en: "Infrastructure Operations & Ongoing Tasks",
+          },
+          bullets: [
+            {
+              main: {
+                kr: "EKS 기반 dev·prod 환경의 Kubernetes 클러스터 운영",
+                en: "Operated EKS clusters for dev and prod environments",
+              },
+              subs: [
+                {
+                  kr: "신규 프로젝트 추가 시 Deployment, Service 등 Kubernetes 리소스 구성 및 적용 전담",
+                  en: "Solely configured and applied Kubernetes resources (Deployments, Services, etc.) for each new project",
+                },
+                {
+                  kr: "초기 YAML 중복 구조를 Helm Chart 도입으로 개선",
+                  en: "Reduced YAML redundancy by introducing Helm Charts",
+                },
+                {
+                  kr: "GitHub Actions를 통한 CI/CD 파이프라인 구성",
+                  en: "Configured CI/CD pipelines via GitHub Actions",
+                },
+              ],
+            },
+            {
+              main: {
+                kr: "Terraform 기반 전사 인프라(IaC) 유지보수 및 개선",
+                en: "Maintained and improved company-wide IaC via Terraform",
+              },
+              subs: [
+                {
+                  kr: "IAM, CloudFront, RDS, Route53, S3, SES 등 다수 AWS 리소스 코드 관리",
+                  en: "Managed Terraform code for AWS resources including IAM, CloudFront, RDS, Route53, S3, and SES",
+                },
+                {
+                  kr: "Vault를 통한 Secret Manager 운영, Terraform 및 Kubernetes 연동",
+                  en: "Operated Vault as a secret manager integrated with Terraform and Kubernetes",
+                },
+              ],
+            },
+            {
+              main: {
+                kr: "기타 운영 업무",
+                en: "Other Operation Tasks",
+              },
+              subs: [
+                {
+                  kr: "도메인, 리치 텍스트 에디터, 문자·이메일 대량 발송 솔루션 소유·운영·결제 관리",
+                  en: "Managed service domains, rich text editors, and bulk SMS/email delivery solutions",
+                },
+                {
+                  kr: "ISMS 대응 참여",
+                  en: "Participated in ISMS certification",
+                },
+                {
+                  kr: "레거시 웹 프로젝트들 관련 대응",
+                  en: "Managed legacy web projects",
+                },
+                {
+                  kr: "HR 데이터 정산용 스크립트 및 시스템 개발",
+                  en: "Developed data settlement scripts and systems for HR",
+                },
+                {
+                  kr: "전사 근태관리 솔루션의 UI를 개선하는 Chrome Extension 개발·배포",
+                  en: "Developed and deployed a Chrome Extension improving the company-wide attendance management UI",
+                },
+              ],
+            },
+          ],
+        },
         {
           from: { kr: "2022.4", en: "Apr 2022" },
           to: { kr: "2023.4", en: "Apr 2023" },
@@ -337,7 +397,7 @@ const content: BilingualContent = {
             },
             {
               main: {
-                kr: "기여범위: 프로젝트 Tech Lead로 참여, 아키텍쳐 설계 및 일정 산정 등 전반적인 프로젝트 관리, HLS streaming 계층을 제외한 모든 백엔드 전담 구현",
+                kr: "기여범위: 프로젝트 테크 리드로 참여, 아키텍쳐 설계 및 일정 산정 등 전반적인 프로젝트 관리, HLS streaming 계층을 제외한 모든 백엔드 전담 구현",
                 en: "Contributions: Served as Tech Lead, managed the overall project including architecture design and scheduling, and solely implemented all backend components except the HLS streaming layer",
               },
             },
@@ -485,6 +545,8 @@ const content: BilingualContent = {
           ],
         },
         {
+          from: { kr: "2020.07", en: "Jul 2020" },
+          to: { kr: "2024.01", en: "Jan 2024" },
           title: {
             kr: "다수 게임 사전예약·이벤트 페이지 백엔드 개발 및 운영, 외주 검수",
             en: "Multi-game Pre-registration & Event Backend, Outsourcing Review",
@@ -596,15 +658,15 @@ const content: BilingualContent = {
             },
           ],
           skills: ["Spring Framework", "Kotlin", "MySQL"],
-          images: [
-            {
-              src: "/selectstar_slack.png",
-              caption: {
-                kr: "당시 개발한 슬랙 챗봇의 후신 '덕비스'",
-                en: "'Deokbis', the successor to the Slack chatbot developed at the time",
-              },
-            },
-          ],
+          // images: [
+          //   {
+          //     src: "/selectstar_slack.png",
+          //     caption: {
+          //       kr: "당시 개발한 슬랙 챗봇의 후신 '덕비스'",
+          //       en: "'Deokbis', the successor to the Slack chatbot developed at the time",
+          //     },
+          //   },
+          // ],
         },
         {
           from: { kr: "2020.01", en: "Jan 2020" },
@@ -634,7 +696,7 @@ const content: BilingualContent = {
             "React",
             "Typescript",
           ],
-          images: [{ src: "/cashmission.png" }],
+          // images: [{ src: "/cashmission.png" }],
         },
       ],
     },

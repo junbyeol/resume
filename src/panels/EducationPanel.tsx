@@ -11,7 +11,7 @@ export function EducationPanel({ educations, isCompact = false }: Props) {
     <Card>
       <Stack gap={isCompact ? 2 : 8}>
         <Text variant="section-header">Education</Text>
-        <Stack gap={isCompact ? 1 : 8}>
+        <Stack gap={isCompact ? 1 : 8} className="w-full">
           {educations.map((education) => (
             <EducationCard
               key={education.name}
@@ -38,9 +38,14 @@ const EducationCard = ({ name, from, to, bullets }: EducationCardProps) => {
   return (
     <Card>
       <Stack gap={3} align="stretch">
-        <Inline className="flex-1 justify-between">
-          <Text variant="section-title-secondary">{name}</Text>
-          <Text variant="section-meta-text">
+        <Inline className="w-full justify-between">
+          <Text variant="section-title-secondary" className="min-w-0">
+            {name}
+          </Text>
+          <Text
+            variant="section-meta-text"
+            className="shrink-0 whitespace-nowrap"
+          >
             {from} - {to}
           </Text>
         </Inline>

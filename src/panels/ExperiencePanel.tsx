@@ -73,13 +73,18 @@ const ExperienceAdditionalInfoCard = ({
   return (
     <Card>
       <Stack gap={3}>
-        <Inline className="w-full justify-between">
-          <Text variant="section-title">{title}</Text>
+        <Inline className="w-full justify-between gap-2">
+          <Text variant="section-title" className="min-w-0">
+            {title}
+          </Text>
           {"from" in additional &&
             "to" in additional &&
             additional.from &&
             additional.to && (
-              <Text variant="section-meta-text">
+              <Text
+                variant="section-meta-text"
+                className="shrink-0 whitespace-nowrap"
+              >
                 {additional.from} - {additional.to}
               </Text>
             )}
