@@ -101,7 +101,7 @@ const content: BilingualContent = {
     fabScrollTop: { kr: "맨 위로", en: "Back to top" },
     fabDownloadResume: { kr: "이력서 PDF", en: "Resume PDF" },
     statement: {
-      kr: "4년 이상의 실무 경험을 보유한 소프트웨어 엔지니어 윤준성입니다.\nTypeScript와 Node.js 기반의 백엔드 개발을 주력으로, 실제 서비스 환경에서 웹·앱 프로덕트를 개발하고 운영해왔습니다.\nReact 및 React Native를 활용한 프론트엔드 구현부터 백엔드 설계, 배포 및 인프라 구성까지 전 과정을 단독으로 책임지고 완결한 경험이 다수 있으며, AWS, GCP 환경에서 Kubernetes와 Lambda를 포함한 다양한 배포 아키텍처를 실무에 적용해왔습니다.\n현재 2026년 여름 졸업을 목표로 KAIST 학부 과정을 마무리하고 있습니다.",
+      kr: "4년 이상의 실무 경험을 보유한 소프트웨어 엔지니어 윤준성입니다.\nTypeScript와 Node.js 기반의 백엔드 개발을 주력으로, 실제 서비스 환경에서 웹·앱 프로덕트를 개발하고 운영해왔습니다.\n백엔드 뿐만 아니라, React 및 React Native를 활용한 프론트엔드 구현과 배포 및 인프라 구성까지 포함한 전 과정을 단독으로 책임지고 완결한 경험이 다수 있으며, AWS, GCP 환경에서 Kubernetes와 Lambda를 포함한 다양한 배포 아키텍처를 실무에 적용해왔습니다.\n현재 2026년 여름 졸업을 목표로 KAIST 학부 과정을 마무리하고 있습니다.",
       en: "Software engineer with 4+ years of professional experience building and operating web and mobile products in production environments.\nSpecializing in backend development with TypeScript and Node.js.\nExperienced in end-to-end product development, from React/React Native frontend implementation to backend architecture, deployment, and infrastructure setup on AWS and GCP.\nUndergraduate student at KAIST, expected to graduate in Summer 2026.",
     },
   },
@@ -117,16 +117,16 @@ const content: BilingualContent = {
       },
       bullets: [
         {
-          kr: "기능 단위 프론트엔드(React Native, React)·백엔드(TypeScript, Node.js, Lambda) 설계·개발·배포 전 과정 단독 수행",
+          kr: "기능 단위 백엔드(TypeScript, Node.js, Lambda)·프론트엔드(React Native, React) 설계·개발·배포 전 과정 단독 수행",
           en: "Solely managed the full-stack lifecycle—from architecture to deployment—for feature-specific modules using TypeScript, Node.js, and AWS Lambda.",
-        },
-        {
-          kr: "사용자 획득 목적의 React-Native, Moti 기반 애니메이션을 활용한 모바일 게임과 카카오톡 공유 등을 포함한 다단계의 플로우 구현",
-          en: "Implemented multi-step flows including mobile games and KakaoTalk sharing using React-Native and Moti-based animations for user acquisition purposes.",
         },
         {
           kr: "주간 수십만 건 데이터 집계 후 수만 대 모바일 기기에 대량 알림 발송하는 배치, 푸시 시스템 구현",
           en: "Implemented a batch system to aggregate weekly hundreds of thousands of rows of data and send mass notifications to tens of thousands of mobile devices.",
+        },
+        {
+          kr: "사용자 획득 목적의 React-Native, Moti 기반 애니메이션을 활용한 모바일 게임과 카카오톡 공유 등을 포함한 다단계의 플로우 구현",
+          en: "Implemented multi-step flows including mobile games and KakaoTalk sharing using React-Native and Moti-based animations for user acquisition purposes.",
         },
       ],
       additionals: [
