@@ -708,7 +708,7 @@ const content: BilingualContent = {
       to: { kr: "2026.08(예정)", en: "Aug 2026" },
       bullets: [
         {
-          kr: "웹 개발 동아리 SPARCS 활동(2학기)",
+          kr: "웹 개발 동아리 SPARCS 활동(2학기, 웹 프로젝트 개발 및 Wheel 세미나 참여)",
           en: "Web Development Club SPARCS (1 year)",
         },
         {
