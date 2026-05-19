@@ -101,7 +101,7 @@ const content: BilingualContent = {
     fabScrollTop: { kr: "맨 위로", en: "Back to top" },
     fabDownloadResume: { kr: "이력서 PDF", en: "Resume PDF" },
     statement: {
-      kr: "4년 이상의 실무 경험을 보유한 소프트웨어 엔지니어 윤준성입니다.\nTypeScript와 Node.js 기반의 백엔드 개발을 주력으로, 실제 서비스 환경에서 웹·앱 프로덕트를 개발하고 운영해왔습니다.\n백엔드 뿐만 아니라, React 및 React Native를 활용한 프론트엔드 구현과 배포 및 인프라 구성까지 포함한 전 과정을 단독으로 책임지고 완결한 경험이 다수 있으며, AWS, GCP 환경에서 Kubernetes와 Lambda를 포함한 다양한 배포 아키텍처를 실무에 적용해왔습니다.\n현재 2026년 여름 졸업을 목표로 KAIST 학부 과정을 마무리하고 있습니다.",
+      kr: "4년 이상의 실무 경험을 보유한 소프트웨어 엔지니어 윤준성입니다.\nTypeScript와 Node.js 기반의 백엔드 개발을 주력으로, 실제 서비스 환경에서 웹·앱 프로덕트를 개발하고 운영해왔습니다.\nAWS, GCP 환경에서 Kubernetes, Lambda를 비롯한 다양한 배포 아키텍처를 설계·운영하고, GitHub Actions와 Terraform을 활용한 CI/CD 파이프라인 구축 및 인프라 자동화부터 React 및 React Native 기반 프론트엔드 구현까지, end-to-end 전 과정을 단독으로 책임지고 완결한 경험이 다수 있습니다.\n현재 2026년 여름 졸업을 목표로 KAIST 학부 과정을 마무리하고 있습니다.",
       en: "Software engineer with 4+ years of professional experience building and operating web and mobile products in production environments.\nSpecializing in backend development with TypeScript and Node.js.\nExperienced in end-to-end product development, from React/React Native frontend implementation to backend architecture, deployment, and infrastructure setup on AWS and GCP.\nUndergraduate student at KAIST, expected to graduate in Summer 2026.",
     },
   },
